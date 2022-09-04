@@ -1,0 +1,137 @@
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "0.12.0-SNAPSHOT" apply false
+}
+
+apply plugin: 'java'
+apply plugin: 'architectury-plugin'
+apply plugin: 'maven-publish'
+apply plugin: 'dev.architectury.loom'
+
+version = '1.19.2-1.0.0'
+
+if (System.getenv("JITPACK") == "true") {
+    version += "-${System.getenv("GIT_BRANCH")}"
+	version += "-${System.getenv("GIT_COMMIT")}"
+}
+
+var release = false
+if (release || project.hasProperty("INFADV_RELEASE")) {
+    version += '-release'
+} else {
+    version += '-dev'
+}
+
+group = 'cx.rain.infadv' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'infadv'
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+loom {
+    silentMojangMappingsLicense()
+
+    forge {
+        dataGen {
+            mod 'infadv'
+        }
+    }
+
+    launches {
+        data {
+            arg "--existing", file("src/main/resources").absolutePath
+        }
+    }
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+repositories {
+    maven {
+        name = 'Jitpack'
+        url = 'https://jitpack.io'
+    }
+
+    maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org'
+    }
+	
+	flatDir {
+         dir 'libs'
+    }
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.19.2"
+    forge "net.minecraftforge:forge:1.19.2-43.1.15"
+
+    mappings loom.layered() {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-1.19.2:2022.08.28@zip")
+    }
+}
+
+// Example for how to get properties into the manifest for reading at runtime.
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "infadv",
+                "Specification-Vendor"    : "qyl27",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "qyl27",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+task injectString(type: Copy) {
+    from ('src/main/java') {
+        include '**/*.java'
+        filter(ReplaceTokens, tokens: [version: project.version])
+    }
+    into "${buildDir}/generated/java"
+}
+
+// qyl27: It only works with main.
+compileJava.source = "${buildDir}/generated/java"
+compileJava.dependsOn injectString
