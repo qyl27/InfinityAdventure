@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TieredItem;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -58,7 +59,11 @@ public abstract class ItemModelProviderBase extends ItemModelProvider {
     }
 
     protected void existsBlockItem(Item item) {
-        withExistingParent(itemResource(item).getPath(), blockPath(item));
+        uncheckedItem(itemResource(item).getPath(), blockPath(item));
+    }
+
+    protected void uncheckedItem(String name, ResourceLocation model) {
+        getBuilder(name).parent(new ModelFile.UncheckedModelFile(model));
     }
 
     protected static ResourceLocation itemResource(Item item) {

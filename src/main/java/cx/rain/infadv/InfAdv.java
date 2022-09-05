@@ -1,5 +1,7 @@
 package cx.rain.infadv;
 
+import cx.rain.infadv.block.ModBlockItems;
+import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.item.ModItems;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -28,7 +30,9 @@ public class InfAdv {
         bus.addListener(this::onSetup);
         bus.addListener(this::onClientSetup);
 
+        ModBlocks.register(bus);
         ModItems.register(bus);
+        ModBlockItems.register(bus);
 
         logger.info("InfAdv loaded.");
     }
