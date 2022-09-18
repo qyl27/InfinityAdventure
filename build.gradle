@@ -10,22 +10,19 @@ apply plugin: 'architectury-plugin'
 apply plugin: 'maven-publish'
 apply plugin: 'dev.architectury.loom'
 
+group = 'cx.rain.infadv' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'infadv'
+
 version = '1.19.2-1.0.0'
-
 if (System.getenv("JITPACK") == "true") {
-    version += "-${System.getenv("GIT_BRANCH")}"
-	version += "-${System.getenv("GIT_COMMIT")}"
+    version += "-${System.getenv("VERSION")}"
 }
-
 var release = false
 if (release || project.hasProperty("INFADV_RELEASE")) {
     version += '-release'
 } else {
     version += '-dev'
 }
-
-group = 'cx.rain.infadv' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'infadv'
 
 architectury {
     platformSetupLoomIde()
@@ -92,6 +89,8 @@ dependencies {
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
+    archiveClassifier.set('')
+
     manifest {
         attributes([
                 "Specification-Title"     : "infadv",
@@ -131,7 +130,5 @@ task injectString(type: Copy) {
     }
     into "${buildDir}/generated/java"
 }
-
-// qyl27: It only works with main.
 compileJava.source = "${buildDir}/generated/java"
 compileJava.dependsOn injectString
