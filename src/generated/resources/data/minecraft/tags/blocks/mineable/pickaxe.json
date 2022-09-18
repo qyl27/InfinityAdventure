@@ -4,6 +4,8 @@
     "infadv:mithril_ore",
     "infadv:adamantine_ore",
     "infadv:ruby_ore",
-    "infadv:aquamarine_ore"
+    "infadv:aquamarine_ore",
+    "infadv:deepslate_mithril_ore",
+    "infadv:deepslate_adamantine_ore"
   ]
 }

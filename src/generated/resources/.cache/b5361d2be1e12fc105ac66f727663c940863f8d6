@@ -1,11 +1,15 @@
-// 1.19.2	2022-09-05T08:23:04.0333527	Block States: infadv
+// 1.19.2	2022-09-19T07:41:35.3856009	Block States: infadv
 ad078818a6e08c824a0b6e4adb80a7dbdfb195fe assets/infadv/blockstates/adamantine_ore.json
 47079585391cfcf385be871127cb4ce757ef0229 assets/infadv/blockstates/aquamarine_ore.json
+51f288ce431a9e4ada87a7935f0a36b148337bcc assets/infadv/blockstates/deepslate_adamantine_ore.json
+f5e2425253d8d002c53b305096d2570baf535839 assets/infadv/blockstates/deepslate_mithril_ore.json
 d837b950b1fc59e997971726b9433b8702d07815 assets/infadv/blockstates/mithril_ore.json
 90ada510f61387704cbe898ec5ed98702f76ddf0 assets/infadv/blockstates/ruby_ore.json
 5b7f368fd925d31152ad08b4b1831426e17395c4 assets/infadv/blockstates/silver_ore.json
 8d1ef60f7ac74b9e9aaac24a25bdd99dbd818e83 assets/infadv/models/block/adamantine_ore.json
 632bbb1fa0657273e11b24fd86fbd4c1a85a3acb assets/infadv/models/block/aquamarine_ore.json
+482ff799e783ed490565cb0f2705bc05b463a26d assets/infadv/models/block/deepslate_adamantine_ore.json
+0a3434b35ea5157cadc7f402071f6c819c96b626 assets/infadv/models/block/deepslate_mithril_ore.json
 5df05a60e3a6d0a383c5911903a528aefb236791 assets/infadv/models/block/mithril_ore.json
 49226bb8c0cdc179d16db510d9be0f8eb1d069e8 assets/infadv/models/block/ruby_ore.json
 3a4c43d04d7dcbfe14353d931d24fb28d34dd6a8 assets/infadv/models/block/silver_ore.json

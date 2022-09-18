@@ -1,12 +1,9 @@
 package cx.rain.infadv.block;
 
 import cx.rain.infadv.InfAdv;
-import cx.rain.infadv.block.base.OreBlockBase;
-import cx.rain.infadv.item.ModItems;
 import cx.rain.infadv.item.ModTabs;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,7 +24,9 @@ public class ModBlockItems {
 
     public static final RegistryObject<Item> SILVER_ORE = BLOCK_ITEMS.register("silver_ore", () -> new BlockItem(ModBlocks.SILVER_ORE.get(), new Item.Properties().tab(ModTabs.ORES)));
     public static final RegistryObject<Item> MITHRIL_ORE = BLOCK_ITEMS.register("mithril_ore", () -> new BlockItem(ModBlocks.MITHRIL_ORE.get(), new Item.Properties().tab(ModTabs.ORES)));
+    public static final RegistryObject<Item> DEEPSLATE_MITHRIL_ORE = BLOCK_ITEMS.register("deepslate_mithril_ore", () -> new BlockItem(ModBlocks.DEEPSLATE_MITHRIL_ORE.get(), new Item.Properties().tab(ModTabs.ORES)));
     public static final RegistryObject<Item> ADAMANTINE_ORE = BLOCK_ITEMS.register("adamantine_ore", () -> new BlockItem(ModBlocks.ADAMANTINE_ORE.get(), new Item.Properties().tab(ModTabs.ORES)));
+    public static final RegistryObject<Item> DEEPSLATE_ADAMANTINE_ORE = BLOCK_ITEMS.register("deepslate_adamantine_ore", () -> new BlockItem(ModBlocks.DEEPSLATE_ADAMANTINE_ORE.get(), new Item.Properties().tab(ModTabs.ORES)));
     public static final RegistryObject<Item> RUBY_ORE = BLOCK_ITEMS.register("ruby_ore", () -> new BlockItem(ModBlocks.RUBY_ORE.get(), new Item.Properties().tab(ModTabs.ORES)));
     public static final RegistryObject<Item> AQUAMARINE_ORE = BLOCK_ITEMS.register("aquamarine_ore", () -> new BlockItem(ModBlocks.AQUAMARINE_ORE.get(), new Item.Properties().tab(ModTabs.ORES)));
 

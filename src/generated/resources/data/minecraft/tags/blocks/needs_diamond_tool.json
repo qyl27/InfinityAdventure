@@ -1,6 +1,8 @@
 {
   "values": [
     "infadv:mithril_ore",
-    "infadv:adamantine_ore"
+    "infadv:adamantine_ore",
+    "infadv:deepslate_mithril_ore",
+    "infadv:deepslate_adamantine_ore"
   ]
 }

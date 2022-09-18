@@ -1,5 +1,5 @@
-// 1.19.2	2022-09-05T08:31:48.5365662	Block Tags: infadv
-f92edfb65f1eb600389971fdef5dab2accefd46a data/minecraft/tags/blocks/mineable/pickaxe.json
-1e32838ed350dc1b1afa420fc652a0ed5161ad3e data/minecraft/tags/blocks/needs_diamond_tool.json
+// 1.19.2	2022-09-19T07:41:35.3756017	Block Tags: infadv
+f280550a8ee8a889b761d495ef65969f8dfe16d0 data/minecraft/tags/blocks/mineable/pickaxe.json
+39f71c9ee522735142411b8e5a7a6f48715f9573 data/minecraft/tags/blocks/needs_diamond_tool.json
 22e860cd317720e53323d5965805d527142d649b data/minecraft/tags/blocks/needs_iron_tool.json
 7ee0bfdfc0e8115df33f6fee8458528815d8fd6b data/minecraft/tags/blocks/needs_stone_tool.json
