@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_ocean",
+  "features": "infadv:aquamarine_ore_ocean",
+  "step": "underground_ores"
+}

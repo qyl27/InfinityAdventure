@@ -2,6 +2,7 @@ package cx.rain.infadv.data.provider;
 
 import cx.rain.infadv.data.provider.base.BiomeModifierProviderBase;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.tags.BiomeTags;
 import net.minecraftforge.common.Tags;
 
 public class ModBiomeModifierProvider extends BiomeModifierProviderBase {
@@ -15,6 +16,7 @@ public class ModBiomeModifierProvider extends BiomeModifierProviderBase {
         overworldOreFeatures("add_mithril_ore", modLoc("mithril_ore"));
         overworldOreFeatures("add_adamantine_ore", modLoc("adamantine_ore"));
         overworldOreFeatures("add_ruby_ore", modLoc("ruby_ore"));
-        oreFeatures("add_aquamarine_ore", Tags.Biomes.IS_MOUNTAIN, modLoc("aquamarine_ore"));
+        oreFeatures("add_aquamarine_ore_mountain", Tags.Biomes.IS_MOUNTAIN, modLoc("aquamarine_ore_mountain"));
+        oreFeatures("add_aquamarine_ore_ocean", BiomeTags.IS_OCEAN, modLoc("aquamarine_ore_ocean"));
     }
 }

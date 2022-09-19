@@ -1,6 +1,7 @@
-// 1.19.2	2022-09-19T10:14:32.5193866	Biome Modifiers: infadv
+// 1.19.2	2022-09-19T13:40:56.0582258	Biome Modifiers: infadv
 c24bb5adca5762beb5cb10b855234f0df2e93db2 data/infadv/forge/biome_modifier/add_adamantine_ore.json
-e0993c0932d2b9916886be4326c949fe9c553f73 data/infadv/forge/biome_modifier/add_aquamarine_ore.json
+10376d702ccf7eec07a0eea265ed72576d6fa075 data/infadv/forge/biome_modifier/add_aquamarine_ore_mountain.json
+8ecdd6e02f73c2ead35b4df82a1da5be77421e81 data/infadv/forge/biome_modifier/add_aquamarine_ore_ocean.json
 d0c92039eefe47a50c54d72e7ee0bedf199ddc87 data/infadv/forge/biome_modifier/add_mithril_ore.json
 177be93e10c538c63fe365e8d7c836c0d5efcb4e data/infadv/forge/biome_modifier/add_ruby_ore.json
 54bffdd03a56a191c4d0a26df8438cc166d0caa7 data/infadv/forge/biome_modifier/add_silver_ore.json

@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#forge:is_mountain",
-  "features": "infadv:aquamarine_ore",
+  "features": "infadv:aquamarine_ore_mountain",
   "step": "underground_ores"
 }
