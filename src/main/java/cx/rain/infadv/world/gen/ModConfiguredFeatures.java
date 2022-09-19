@@ -21,29 +21,29 @@ import java.util.function.Supplier;
 public class ModConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, InfAdv.MODID);
 
-    private static Supplier<List<OreConfiguration.TargetBlockState>> stoneReplacement(Block block) {
-        return Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, block.defaultBlockState())));
+    private static Supplier<List<OreConfiguration.TargetBlockState>> stoneReplacement(Supplier<? extends Block> block) {
+        return Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, block.get().defaultBlockState())));
     }
 
-    private static Supplier<List<OreConfiguration.TargetBlockState>> deepslateReplacement(Block block) {
-        return Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, block.defaultBlockState())));
+    private static Supplier<List<OreConfiguration.TargetBlockState>> deepslateReplacement(Supplier<? extends Block> block) {
+        return Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, block.get().defaultBlockState())));
     }
 
-    private static Supplier<List<OreConfiguration.TargetBlockState>> overworldReplacement(Block block) {
+    private static Supplier<List<OreConfiguration.TargetBlockState>> overworldReplacement(Supplier<? extends Block> block) {
         return Suppliers.memoize(() ->
-                List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, block.defaultBlockState()),
-                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, block.defaultBlockState())));
+                List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, block.get().defaultBlockState()),
+                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, block.get().defaultBlockState())));
     }
 
     public static void register(IEventBus bus) {
         CONFIGURED_FEATURES.register(bus);
     }
 
-    private static final Supplier<List<OreConfiguration.TargetBlockState>> SILVER_REPLACEMENT = stoneReplacement(ModBlocks.SILVER_ORE.get());
-    private static final Supplier<List<OreConfiguration.TargetBlockState>> MITHRIL_REPLACEMENT = overworldReplacement(ModBlocks.MITHRIL_ORE.get());
-    private static final Supplier<List<OreConfiguration.TargetBlockState>> ADAMANTINE_REPLACEMENT = deepslateReplacement(ModBlocks.ADAMANTINE_ORE.get());
-    private static final Supplier<List<OreConfiguration.TargetBlockState>> RUBY_REPLACEMENT = stoneReplacement(ModBlocks.RUBY_ORE.get());
-    private static final Supplier<List<OreConfiguration.TargetBlockState>> AQUAMARINE_REPLACEMENT = stoneReplacement(ModBlocks.AQUAMARINE_ORE.get());
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> SILVER_REPLACEMENT = stoneReplacement(ModBlocks.SILVER_ORE);
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> MITHRIL_REPLACEMENT = overworldReplacement(ModBlocks.MITHRIL_ORE);
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> ADAMANTINE_REPLACEMENT = deepslateReplacement(ModBlocks.ADAMANTINE_ORE);
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> RUBY_REPLACEMENT = stoneReplacement(ModBlocks.RUBY_ORE);
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> AQUAMARINE_REPLACEMENT = stoneReplacement(ModBlocks.AQUAMARINE_ORE);
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> SILVER_ORE = CONFIGURED_FEATURES.register("silver_ore", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(SILVER_REPLACEMENT.get(), 8)));
     public static final RegistryObject<ConfiguredFeature<?, ?>> MITHRIL_ORE = CONFIGURED_FEATURES.register("mithril_ore", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(MITHRIL_REPLACEMENT.get(), 6)));
