@@ -1,6 +1,8 @@
-// 1.19.2	2022-09-19T10:11:10.1472859	Item Models: infadv
-86dd2526012d34cb1e53a993400864d02bf37c04 assets/infadv/models/item/adamantine_ingot.json
-92895cc834dbc98490a841a991a43bca5753a329 assets/infadv/models/item/aquamarine.json
-fa826b70dc4261a336df6dc837c0c767db7cb461 assets/infadv/models/item/mithril_ingot.json
-8e15e686cbc33a24cbdeb247edc8abf26ef47a26 assets/infadv/models/item/ruby.json
-c61366cc6458edd607d6bde5b59d08750d50cf47 assets/infadv/models/item/silver_ingot.json
+// 1.19.2	2022-09-19T10:14:32.5133855	Item Models: infadv
+7d3bb4c65e191b9ad919a29f5c1189aee18a7195 assets/infadv/models/item/adamantine_ore.json
+5e6ee6a91268eb25d8ffcd1bfba70cc92c961d1e assets/infadv/models/item/aquamarine_ore.json
+e50e0963856f21ba6a6f860a331e9dda5131ddff assets/infadv/models/item/deepslate_adamantine_ore.json
+7f98abe825ee235898767f965d235b09a4bc8f58 assets/infadv/models/item/deepslate_mithril_ore.json
+ad743310f7b58abea458871da55cf08139bcb25a assets/infadv/models/item/mithril_ore.json
+a2b95ea27254bf981d5b1b4af797cdf89ec8a857 assets/infadv/models/item/ruby_ore.json
+4664eb413c7803e2f9ce59dee047bb59436ddc25 assets/infadv/models/item/silver_ore.json
