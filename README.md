@@ -1,2 +1,2 @@
 # InfinityAdventure
-Fresh begin.
+Fresh beginning.

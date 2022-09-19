@@ -39,7 +39,7 @@ public class InfAdv {
         ModConfiguredFeatures.register(bus);
         ModPlacedFeatures.register(bus);
 
-        logger.info("InfAdv loaded.");
+        logger.info("Fresh beginning.");
     }
 
     public static InfAdv getInstance() {
