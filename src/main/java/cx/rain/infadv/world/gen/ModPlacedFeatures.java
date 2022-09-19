@@ -22,6 +22,7 @@ public class ModPlacedFeatures {
     }
 
     public static void register(IEventBus bus) {
+        InfAdv.getInstance().getLogger().info("Register InfAdv Placed Features.");
         PLACEMENT_FEATURES.register(bus);
     }
 

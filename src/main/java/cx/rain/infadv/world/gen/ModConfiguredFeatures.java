@@ -36,6 +36,7 @@ public class ModConfiguredFeatures {
     }
 
     public static void register(IEventBus bus) {
+        InfAdv.getInstance().getLogger().info("Register InfAdv Configured Features.");
         CONFIGURED_FEATURES.register(bus);
     }
 

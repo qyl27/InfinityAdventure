@@ -23,7 +23,7 @@ public class DataGen {
 
         if (event.includeClient()) {
             generator.addProvider(true, new ModItemModelProvider(generator, InfAdv.MODID, exHelper, ModItems.getRegistry()));
-            generator.addProvider(true, new ModItemModelProvider(generator, InfAdv.MODID, exHelper, ModBlockItems.getRegistry()));
+            generator.addProvider(true, new ModItemModelProvider(generator, InfAdv.MODID, exHelper, ModBlockItems.getRegistry(), true));
 
             generator.addProvider(true, new ModBlockStateProvider(generator, InfAdv.MODID, exHelper, ModBlocks.getRegistry()));
         }

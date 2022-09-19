@@ -17,9 +17,9 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
 
         addBlock(ModBlocks.SILVER_ORE, "银矿石");
         addBlock(ModBlocks.MITHRIL_ORE, "秘银矿石");
-        addBlock(ModBlocks.DEEPSLATE_MITHRIL_ORE, "深板岩秘银矿石");
+        addBlock(ModBlocks.DEEPSLATE_MITHRIL_ORE, "深层秘银矿石");
         addBlock(ModBlocks.ADAMANTINE_ORE, "精金矿石");
-        addBlock(ModBlocks.DEEPSLATE_ADAMANTINE_ORE, "深板岩精金矿石");
+        addBlock(ModBlocks.DEEPSLATE_ADAMANTINE_ORE, "深层精金矿石");
         addBlock(ModBlocks.RUBY_ORE, "红宝石矿石");
         addBlock(ModBlocks.AQUAMARINE_ORE, "海蓝宝石矿石");
 
