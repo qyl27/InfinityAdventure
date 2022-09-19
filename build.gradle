@@ -18,7 +18,7 @@ if (System.getenv("JITPACK") == "true") {
     version += "-${System.getenv("VERSION")}"
 }
 var release = false
-if (release || project.hasProperty("INFADV_RELEASE")) {
+if (release || (project.hasProperty("INFADV_RELEASE") && project.property("INFADV_RELEASE") == 'true')) {
     version += '-release'
 } else {
     version += '-dev'
@@ -60,6 +60,10 @@ processResources {
 }
 
 repositories {
+    flatDir {
+        dir 'libs'
+    }
+
     maven {
         name = 'Jitpack'
         url = 'https://jitpack.io'
@@ -68,10 +72,6 @@ repositories {
     maven {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
-    }
-	
-	flatDir {
-         dir 'libs'
     }
 }
 
@@ -86,6 +86,10 @@ dependencies {
     mappings loom.layered() {
         officialMojangMappings()
         parchment("org.parchmentmc.data:parchment-1.19.2:2022.08.28@zip")
+    }
+
+    if (!release) {
+        modImplementation "mods:xray:2.0.4" // qyl27: For debugging.
     }
 }
 
