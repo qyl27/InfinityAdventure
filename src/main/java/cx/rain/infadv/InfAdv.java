@@ -3,6 +3,8 @@ package cx.rain.infadv;
 import cx.rain.infadv.block.ModBlockItems;
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.item.ModItems;
+import cx.rain.infadv.world.gen.ModConfiguredFeatures;
+import cx.rain.infadv.world.gen.ModPlacedFeatures;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -33,6 +35,9 @@ public class InfAdv {
         ModBlocks.register(bus);
         ModItems.register(bus);
         ModBlockItems.register(bus);
+
+        ModConfiguredFeatures.register(bus);
+        ModPlacedFeatures.register(bus);
 
         logger.info("InfAdv loaded.");
     }
