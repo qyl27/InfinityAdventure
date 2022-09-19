@@ -1,0 +1,15 @@
+{
+  "block.infadv.adamantine_ore": "Adamantine Ore",
+  "block.infadv.aquamarine_ore": "Aquamarine Ore",
+  "block.infadv.deepslate_adamantine_ore": "Deepslate Adamantine Ore",
+  "block.infadv.deepslate_mithril_ore": "Deepslate Mithril Ore",
+  "block.infadv.mithril_ore": "Mithril Ore",
+  "block.infadv.ruby_ore": "Ruby Ore",
+  "block.infadv.silver_ore": "Silver Ore",
+  "item.infadv.adamantine_ingot": "Adamantine Ingot",
+  "item.infadv.aquamarine": "Aquamarine",
+  "item.infadv.mithril_ingot": "Mithril Ingot",
+  "item.infadv.ruby": "Ruby",
+  "item.infadv.silver_ingot": "Silver Ingot",
+  "itemGroup.infadv_infadv_ores": "InfinityAdventure | Ores"
+}

@@ -12,7 +12,7 @@ public class ModTabs extends CreativeModeTab {
     protected Supplier<? extends ItemLike> iconItem;
 
     public ModTabs(String label, Supplier<? extends ItemLike> icon) {
-        super(label);
+        super("infadv_" + label);
         iconItem = icon;
     }
 

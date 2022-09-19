@@ -28,7 +28,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> DEEPSLATE_MITHRIL_ORE = BLOCKS.register("deepslate_mithril_ore", () -> new OreBase(4.5f, 4));
     public static final RegistryObject<Block> ADAMANTINE_ORE = BLOCKS.register("adamantine_ore", () -> new OreBase(3, 6));
     public static final RegistryObject<Block> DEEPSLATE_ADAMANTINE_ORE = BLOCKS.register("deepslate_adamantine_ore", () -> new OreBase(4.5f, 6));
-    public static final RegistryObject<Block> RUBY_ORE = BLOCKS.register("ruby_ore", () -> new OreBase(3, 3));
-    public static final RegistryObject<Block> AQUAMARINE_ORE = BLOCKS.register("aquamarine_ore", () -> new OreBase(3, 2));
+    public static final RegistryObject<Block> RUBY_ORE = BLOCKS.register("ruby_ore", () -> new OreDropExperienceBase(3, 3, UniformInt.of(1, 3)));
+    public static final RegistryObject<Block> AQUAMARINE_ORE = BLOCKS.register("aquamarine_ore", () -> new OreDropExperienceBase(3, 2, UniformInt.of(2, 5)));
 
 }

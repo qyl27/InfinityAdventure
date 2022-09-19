@@ -1,0 +1,15 @@
+{
+  "block.infadv.adamantine_ore": "精金矿石",
+  "block.infadv.aquamarine_ore": "海蓝宝石矿石",
+  "block.infadv.deepslate_adamantine_ore": "深板岩精金矿石",
+  "block.infadv.deepslate_mithril_ore": "深板岩秘银矿石",
+  "block.infadv.mithril_ore": "秘银矿石",
+  "block.infadv.ruby_ore": "红宝石矿石",
+  "block.infadv.silver_ore": "银矿石",
+  "item.infadv.adamantine_ingot": "精金锭",
+  "item.infadv.aquamarine": "海蓝宝石",
+  "item.infadv.mithril_ingot": "秘银锭",
+  "item.infadv.ruby": "红宝石",
+  "item.infadv.silver_ingot": "银锭",
+  "itemGroup.infadv_infadv_ores": "无尽冒险 | 矿石"
+}
