@@ -29,10 +29,10 @@ public class ModConfiguredFeatures {
         return Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, block.get().defaultBlockState())));
     }
 
-    private static Supplier<List<OreConfiguration.TargetBlockState>> overworldReplacement(Supplier<? extends Block> block) {
+    private static Supplier<List<OreConfiguration.TargetBlockState>> overworldReplacement(Supplier<? extends Block> block, Supplier<? extends Block> deepslate) {
         return Suppliers.memoize(() ->
                 List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, block.get().defaultBlockState()),
-                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, block.get().defaultBlockState())));
+                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, deepslate.get().defaultBlockState())));
     }
 
     public static void register(IEventBus bus) {
@@ -40,8 +40,8 @@ public class ModConfiguredFeatures {
     }
 
     private static final Supplier<List<OreConfiguration.TargetBlockState>> SILVER_REPLACEMENT = stoneReplacement(ModBlocks.SILVER_ORE);
-    private static final Supplier<List<OreConfiguration.TargetBlockState>> MITHRIL_REPLACEMENT = overworldReplacement(ModBlocks.MITHRIL_ORE);
-    private static final Supplier<List<OreConfiguration.TargetBlockState>> ADAMANTINE_REPLACEMENT = deepslateReplacement(ModBlocks.ADAMANTINE_ORE);
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> MITHRIL_REPLACEMENT = overworldReplacement(ModBlocks.MITHRIL_ORE, ModBlocks.DEEPSLATE_MITHRIL_ORE);
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> ADAMANTINE_REPLACEMENT = deepslateReplacement(ModBlocks.DEEPSLATE_ADAMANTINE_ORE);
     private static final Supplier<List<OreConfiguration.TargetBlockState>> RUBY_REPLACEMENT = stoneReplacement(ModBlocks.RUBY_ORE);
     private static final Supplier<List<OreConfiguration.TargetBlockState>> AQUAMARINE_REPLACEMENT = stoneReplacement(ModBlocks.AQUAMARINE_ORE);
 
