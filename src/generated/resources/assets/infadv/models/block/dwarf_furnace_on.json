@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infadv:block/dwarf_furnace_front_on",
+    "side": "infadv:block/dwarf_furnace_side",
+    "top": "infadv:block/dwarf_furnace_top"
+  }
+}

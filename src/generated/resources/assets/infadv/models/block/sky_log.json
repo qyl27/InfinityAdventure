@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "infadv:block/sky_log_top",
+    "side": "infadv:block/sky_log"
+  }
+}

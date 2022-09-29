@@ -8,10 +8,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class OreDropExperienceBase extends OreBase {
+public class OreBlockDropExperienceBase extends OreBlockBase {
     private final IntProvider xpDropRange;
 
-    public OreDropExperienceBase(float hardness, float explosionResistance, IntProvider xp) {
+    public OreBlockDropExperienceBase(float hardness, float explosionResistance, IntProvider xp) {
         super(hardness, explosionResistance);
         xpDropRange = xp;
     }

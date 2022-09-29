@@ -1,8 +1,10 @@
 package cx.rain.infadv.data.provider;
 
+import cx.rain.infadv.block.ModBlockItems;
 import cx.rain.infadv.data.provider.base.ItemModelProviderBase;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
@@ -22,7 +24,9 @@ public class ModItemModelProvider extends ItemModelProviderBase {
 
     @Override
     protected void registerItemModels() {
+        skipItems(ModBlockItems.DWARF_FURNACE.get());
 
+        getBuilder(name(ModBlockItems.DWARF_FURNACE.get())).parent(new ModelFile.UncheckedModelFile(modLoc("block/dwarf_furnace_off")));
     }
 
     @Override

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/grass_block",
+  "textures": {
+    "bottom": "minecraft:block/dirt",
+    "particle": "infadv:block/sky_grass_block",
+    "side": "infadv:block/sky_grass_block",
+    "top": "infadv:block/sky_grass_block_top"
+  }
+}

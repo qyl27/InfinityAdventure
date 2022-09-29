@@ -1,10 +1,17 @@
 package cx.rain.infadv.data.provider.base;
 
+import cx.rain.infadv.block.base.FacingBlockBase;
+import cx.rain.infadv.block.base.FurnaceBlockBase;
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Arrays;
@@ -59,5 +66,44 @@ public abstract class BlockStateProviderBase extends BlockStateProvider {
             // Todo: qyl27: more block types presets.
             simpleBlock(block);
         }
+    }
+
+    public void block(Block block, ResourceLocation bottom, ResourceLocation top, ResourceLocation side) {
+        getVariantBuilder(block).partialState()
+                .modelForState()
+                .modelFile(models().withExistingParent(name(block), "block/grass_block")
+                        .texture("particle", side)
+                        .texture("bottom", bottom)
+                        .texture("top", top)
+                        .texture("side", side))
+                .addModel();
+    }
+
+    public void furnaceBlock(FurnaceBlockBase block, ResourceLocation side, ResourceLocation front, ResourceLocation frontOn, ResourceLocation end) {
+        var builder = getVariantBuilder(block);
+
+        var facing = Direction.NORTH;
+        var burning = false;
+        for (var i = 0; i < 2; i++) {
+            for (var j = 0; j < 4; j++) {
+                builder.partialState()
+                        .with(FurnaceBlockBase.FACING, facing)
+                        .with(FurnaceBlockBase.BURNING, burning)
+                        .modelForState()
+                        .modelFile(models().orientable(name(block) + (burning ? "_on" : "_off"), side, (burning ? frontOn : front), end))
+                        .rotationY(j * 90)
+                        .addModel();
+                facing = facing.getClockWise();
+            }
+            burning = !burning;
+        }
+    }
+
+    protected ResourceLocation key(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
+    }
+
+    protected String name(Block block) {
+        return key(block).getPath();
     }
 }

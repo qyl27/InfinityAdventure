@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "infadv:block/sky_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "infadv:block/sky_log"
+    },
+    "axis=z": {
+      "model": "infadv:block/sky_log_horizontal",
+      "x": 90
+    }
+  }
+}

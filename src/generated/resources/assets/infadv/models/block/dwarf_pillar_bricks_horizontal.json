@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "infadv:block/dwarf_pillar_bricks_top",
+    "side": "infadv:block/dwarf_pillar_bricks"
+  }
+}

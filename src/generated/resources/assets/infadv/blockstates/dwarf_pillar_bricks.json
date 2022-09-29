@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "infadv:block/dwarf_pillar_bricks_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "infadv:block/dwarf_pillar_bricks"
+    },
+    "axis=z": {
+      "model": "infadv:block/dwarf_pillar_bricks_horizontal",
+      "x": 90
+    }
+  }
+}

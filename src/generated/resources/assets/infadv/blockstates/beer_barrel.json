@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "infadv:block/beer_barrel",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "infadv:block/beer_barrel"
+    },
+    "facing=south": {
+      "model": "infadv:block/beer_barrel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "infadv:block/beer_barrel",
+      "y": 270
+    }
+  }
+}

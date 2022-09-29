@@ -1,8 +1,22 @@
-// 1.19.2	2022-09-19T13:08:43.4607437	Item Models: infadv
+// 1.19.2	2022-09-29T15:19:19.5529697	Item Models: infadv
 7d3bb4c65e191b9ad919a29f5c1189aee18a7195 assets/infadv/models/item/adamantine_ore.json
+a7b25a6c96218bd1bb137e2b34450f6dbcd5d32e assets/infadv/models/item/ancient_dwarf_bricks.json
 5e6ee6a91268eb25d8ffcd1bfba70cc92c961d1e assets/infadv/models/item/aquamarine_ore.json
+2bdc0f41c410729472d9fe3aa51b3f5b34923c35 assets/infadv/models/item/beer_barrel.json
+e692e8cd7d580e701655a7f090ef189b815f3e51 assets/infadv/models/item/black_cloud.json
+04a2f4a07be27af7dda4ffff0d71e1cce68f81fb assets/infadv/models/item/dark_grey_cloud.json
 e50e0963856f21ba6a6f860a331e9dda5131ddff assets/infadv/models/item/deepslate_adamantine_ore.json
 7f98abe825ee235898767f965d235b09a4bc8f58 assets/infadv/models/item/deepslate_mithril_ore.json
+7152d68953540ba9dcd8c38c720d8aaaaf4ce9ab assets/infadv/models/item/dwarf_bricks.json
+ab88d98f67fa9ee34d97de81e23d59c0da5c925e assets/infadv/models/item/dwarf_furnace.json
+2e18cf5b391b8b7423f66742431dfcd494a4eff6 assets/infadv/models/item/dwarf_pillar_bricks.json
+71402b9ec6abe4e72c0209cb6ce05560a704b17d assets/infadv/models/item/light_grey_cloud.json
 ad743310f7b58abea458871da55cf08139bcb25a assets/infadv/models/item/mithril_ore.json
+26ecdaa1d6be7e52928b2d63108cb3d079db0660 assets/infadv/models/item/red_cloud.json
 a2b95ea27254bf981d5b1b4af797cdf89ec8a857 assets/infadv/models/item/ruby_ore.json
 4664eb413c7803e2f9ce59dee047bb59436ddc25 assets/infadv/models/item/silver_ore.json
+163c78bd6ad8b6b9e71ffb62f5f99e5875e1950b assets/infadv/models/item/sky_grass_block.json
+f4d6e22c6a67c4cd18ad80534f5b0a922af47955 assets/infadv/models/item/sky_leaves.json
+2bd890e5f1c3b64507cfb650e07df63fa64477a1 assets/infadv/models/item/sky_log.json
+eac0dafae92ed55cb9de27820bc4dd302f491f2f assets/infadv/models/item/sky_planks.json
+fcf24021aa1e5fb1d97fffbb1d6a96509461b4e4 assets/infadv/models/item/white_cloud.json
