@@ -14,8 +14,18 @@ group = 'cx.rain.infadv' // http://maven.apache.org/guides/mini/guide-naming-con
 archivesBaseName = 'infadv'
 
 version = '1.19.2-1.0.0'
-if (System.getenv("JITPACK") == "true") {
-    version += "-${System.getenv("VERSION")}"
+if (System.getenv("CI") == "true") {
+    version += "-${System.getenv("CIRCLE_BRANCH")}"
+    version += "-${System.getenv("CIRCLE_SHA1")}"
+    version += "-${System.getenv("CIRCLE_BUILD_NUM")}"
+
+    if (System.getenv("CIRCLE_PR_USERNAME") != null) {
+        version += "-pr-${System.getenv("CIRCLE_PR_USERNAME")}"
+    }
+
+    if (System.getenv("CIRCLE_PR_NUMBER") != null) {
+        version += "-#${System.getenv("CIRCLE_PR_NUMBER")}"
+    }
 }
 var release = false
 if (release || (project.hasProperty("INFADV_RELEASE") && project.property("INFADV_RELEASE") == 'true')) {
