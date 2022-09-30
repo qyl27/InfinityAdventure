@@ -44,3 +44,6 @@ jobs:
 
       # run tests!
       - run: gradle clean build assemble publishToMavenLocal --refresh-dependencies
+      
+      - store_artifacts:
+          path: ~/repo/build/libs
