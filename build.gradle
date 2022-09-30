@@ -16,7 +16,7 @@ archivesBaseName = 'infadv'
 version = '1.19.2-1.0.0'
 if (System.getenv("CI") == "true") {
     version += "-${System.getenv("CIRCLE_BRANCH")}"
-    version += "-${System.getenv("CIRCLE_SHA1")}"
+    version += "-${System.getenv("CIRCLE_SHA1").substring(0, 7)}"
     version += "-${System.getenv("CIRCLE_BUILD_NUM")}"
 
     if (System.getenv("CIRCLE_PR_USERNAME") != null) {
