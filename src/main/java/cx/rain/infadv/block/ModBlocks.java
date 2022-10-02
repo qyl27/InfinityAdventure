@@ -40,11 +40,20 @@ public class ModBlocks {
     public static final RegistryObject<Block> DWARF_BRICKS = BLOCKS.register("dwarf_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK)));
     public static final RegistryObject<RotatedPillarBlock> DWARF_PILLAR_BRICKS = BLOCKS.register("dwarf_pillar_bricks", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK)));
     public static final RegistryObject<Block> ANCIENT_DWARF_BRICKS = BLOCKS.register("ancient_dwarf_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK)));
+    public static final RegistryObject<Block> ANCIENT_DWARF_CRATE = BLOCKS.register("ancient_dwarf_crate", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK)));   // Todo: crate container and base.
     public static final RegistryObject<FurnaceBlockBase> DWARF_FURNACE = BLOCKS.register("dwarf_furnace", () -> new FurnaceBlockBase());    // Todo: functional block.
     public static final RegistryObject<FacingBlockBase> BEER_BARREL = BLOCKS.register("beer_barrel", () -> new FacingBlockBase(BlockBehaviour.Properties.copy(Blocks.BARREL)));    // Todo: functional block.
-    public static final RegistryObject<GrassBlockBase> SKY_GRASS_BLOCK = BLOCKS.register("sky_grass_block", () -> new GrassBlockBase(BlockBehaviour.Properties.of(Material.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)));    // Todo: Material.
+
+    public static final RegistryObject<GrassBlockBase> SKY_GRASS_BLOCK = BLOCKS.register("sky_grass_block", () -> new GrassBlockBase(BlockBehaviour.Properties.of(Material.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)));    // Todo: Material and grass grow.
     public static final RegistryObject<RotatedPillarBlock> SKY_LOG = BLOCKS.register("sky_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
     public static final RegistryObject<Block> SKY_PLANKS = BLOCKS.register("sky_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<LeavesBlock> SKY_LEAVES = BLOCKS.register("sky_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
-
+    public static final RegistryObject<Block> SKY_STONE = BLOCKS.register("sky_stone", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(1.5f, 4.0f).sound(SoundType.STONE)));
+    public static final RegistryObject<Block> HEAVEN_ROCK = BLOCKS.register("heaven_rock", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2, 4.0f).sound(SoundType.STONE)));
+    public static final RegistryObject<Block> HEAVEN_BRICKS = BLOCKS.register("heaven_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2, 4.0f).sound(SoundType.STONE)));
+    public static final RegistryObject<OreBlockDropExperienceBase> MICA_ORE = BLOCKS.register("mica_ore", () -> new OreBlockDropExperienceBase(2, 3, UniformInt.of(2, 5)));
+    public static final RegistryObject<Block> SILVER_BLOCK = BLOCKS.register("silver_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.METAL).requiresCorrectToolForDrops().strength(3.0f, 6.0f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> MITHRIL_BLOCK = BLOCKS.register("mithril_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.METAL).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.EMERALD).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> MICA_BLOCK = BLOCKS.register("mica_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.QUARTZ).requiresCorrectToolForDrops().strength(0.8f, 1.0f).sound(SoundType.STONE)));
 }

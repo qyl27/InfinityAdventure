@@ -31,7 +31,7 @@ displayURL="https://github.com/qyl27/InfinityAdventure" #optional
 # A text field displayed in the mod UI
 credits="Yuri's Cat" #optional
 # A text field displayed in the mod UI
-authors="qyl27" #optional
+authors="qyl27, Victoria, lq2007" #optional
 # Display Test controls the display for your mod in the server connection screen
 # MATCH_VERSION means that your mod will cause a red X if the versions on client and server differ. This is the default behaviour and should be what you choose if you have server and client elements to your mod.
 # IGNORE_SERVER_VERSION means that your mod will not cause a red X if it's present on the server but not on the client. This is what you should use if you're a server only mod.

@@ -1,7 +1,10 @@
-// 1.19.2	2022-09-29T14:54:34.3507184	Block Item Models: infadv
+// 1.19.2	2022-10-02T14:41:50.9792358	Block Item Models: infadv
 86dd2526012d34cb1e53a993400864d02bf37c04 assets/infadv/models/item/adamantine_ingot.json
 92895cc834dbc98490a841a991a43bca5753a329 assets/infadv/models/item/aquamarine.json
+2d7743d6ea02be6f7b12bf0fa551f5fb18af5e09 assets/infadv/models/item/dream_pillow.json
 05837cbbfc23e9e832d27765b5caea4fa5875e15 assets/infadv/models/item/dwarf_furnace.json
+c5cb6c09e231e112b5e498f05dcea8059050ef51 assets/infadv/models/item/mica.json
 fa826b70dc4261a336df6dc837c0c767db7cb461 assets/infadv/models/item/mithril_ingot.json
+67748602db094e7cb6d440a7e3bad8be747cbd51 assets/infadv/models/item/rough_silver.json
 8e15e686cbc33a24cbdeb247edc8abf26ef47a26 assets/infadv/models/item/ruby.json
 c61366cc6458edd607d6bde5b59d08750d50cf47 assets/infadv/models/item/silver_ingot.json
