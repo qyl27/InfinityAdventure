@@ -22,6 +22,6 @@ public class ModBlockStateProvider extends BlockStateProviderBase {
         furnaceBlock(ModBlocks.DWARF_FURNACE.get(), modLoc("block/dwarf_furnace_side"), modLoc("block/dwarf_furnace_front"), modLoc("block/dwarf_furnace_front_on"), modLoc("block/dwarf_furnace_top"));
         logBlock(ModBlocks.DWARF_PILLAR_BRICKS.get());
         logBlock(ModBlocks.SKY_LOG.get());
-        block(ModBlocks.SKY_GRASS_BLOCK.get(), mcLoc("block/dirt"), modLoc("block/sky_grass_block_top"), modLoc("block/sky_grass_block"));
+        grassBlock(ModBlocks.SKY_GRASS_BLOCK.get(), mcLoc("block/dirt"), modLoc("block/sky_grass_block_top"), modLoc("block/sky_grass_block"), modLoc("block/sky_grass_block"));
     }
 }

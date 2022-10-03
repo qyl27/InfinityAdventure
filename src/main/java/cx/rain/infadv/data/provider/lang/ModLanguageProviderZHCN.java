@@ -5,11 +5,6 @@ import cx.rain.infadv.data.provider.base.LanguageProviderBase;
 import cx.rain.infadv.item.ModItems;
 import cx.rain.infadv.item.ModTabs;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.registries.RegistryObject;
 
 public class ModLanguageProviderZHCN extends LanguageProviderBase {
     public ModLanguageProviderZHCN(DataGenerator gen, String modid) {
@@ -24,6 +19,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addCreativeTab(ModTabs.FUNCTIONAL_ITEMS, "无尽冒险 | 功能性物品");
         addCreativeTab(ModTabs.BATTLING, "无尽冒险 | 战斗用品");
         addCreativeTab(ModTabs.TOOLS, "无尽冒险 | 工具");
+        addCreativeTab(ModTabs.MISC, "无尽冒险 | 杂项");
 
         addBlock(ModBlocks.SILVER_ORE, "银矿石");
         addBlock(ModBlocks.MITHRIL_ORE, "秘银矿石");
@@ -46,6 +42,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addBlock(ModBlocks.SKY_GRASS_BLOCK, "天境草方块");
         addBlock(ModBlocks.SKY_LOG, "天境树原木");
         addBlock(ModBlocks.SKY_PLANKS, "天境树木板");
+        addBlock(ModBlocks.SKY_LEAVES, "天境树叶");
         addBlock(ModBlocks.SKY_STONE, "天境岩");
         addBlock(ModBlocks.HEAVEN_ROCK, "天使城堡石");
         addBlock(ModBlocks.HEAVEN_BRICKS, "天使城堡砖");
@@ -60,6 +57,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.ADAMANTINE_INGOT, "精金锭");
         addItem(ModItems.RUBY, "红宝石");
         addItem(ModItems.AQUAMARINE, "海蓝宝石");
+        addItem(ModItems.RAW_SILVER, "粗银");
         addItem(ModItems.MICA, "云母");
         addItem(ModItems.DREAM_PILLOW, "梦之枕");
         addItem(ModItems.SILVER_SWORD, "银剑");
@@ -77,5 +75,6 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.MITHRIL_SHOVEL, "秘银锹");
         addItem(ModItems.MITHRIL_HOE, "秘银锄");
 
+        addItem(ModItems.DWARF_SPAWN_EGG, "矮人刷怪蛋");
     }
 }

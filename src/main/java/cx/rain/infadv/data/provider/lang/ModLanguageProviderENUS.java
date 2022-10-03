@@ -19,6 +19,7 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addCreativeTab(ModTabs.FUNCTIONAL_ITEMS, "InfinityAdventure | Functional");
         addCreativeTab(ModTabs.BATTLING, "InfinityAdventure | Battling");
         addCreativeTab(ModTabs.TOOLS, "InfinityAdventure | Tools");
+        addCreativeTab(ModTabs.MISC, "InfinityAdventure | Miscellaneous");
 
         addBlock(ModBlocks.SILVER_ORE, "Silver Ore");
         addBlock(ModBlocks.MITHRIL_ORE, "Mithril Ore");
@@ -56,6 +57,7 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addItem(ModItems.ADAMANTINE_INGOT, "Adamantine Ingot");
         addItem(ModItems.RUBY, "Ruby");
         addItem(ModItems.AQUAMARINE, "Aquamarine");
+        addItem(ModItems.RAW_SILVER, "Raw Silver");
         addItem(ModItems.MICA, "Mica");
         addItem(ModItems.DREAM_PILLOW, "Dream Pillow");
         addItem(ModItems.SILVER_SWORD, "Silver Sword");
@@ -72,5 +74,7 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addItem(ModItems.MITHRIL_PICKAXE, "Mithril Pickaxe");
         addItem(ModItems.MITHRIL_SHOVEL, "Mithril Shovel");
         addItem(ModItems.MITHRIL_HOE, "Mithril Hoe");
+
+        addItem(ModItems.DWARF_SPAWN_EGG, "Dwarf Spawn Egg");
     }
 }

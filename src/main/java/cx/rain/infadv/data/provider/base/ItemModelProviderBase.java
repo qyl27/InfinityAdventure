@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -74,6 +75,10 @@ public abstract class ItemModelProviderBase extends ItemModelProvider {
         return new ResourceLocation(namespace, path);
     }
 
+    protected final ItemModelBuilder spawnEgg(Item item) {
+        return withExistingParent(itemResource(item).getPath(), mcLoc("item/template_spawn_egg"));
+    }
+
     // qyl27: Internal methods below.
 
     protected final ResourceLocation blockPath(Item item) {
@@ -121,6 +126,11 @@ public abstract class ItemModelProviderBase extends ItemModelProvider {
             // Todo: qyl27: more item types presets.
             if (item instanceof TieredItem) {
                 handheld(item);
+                continue;
+            }
+
+            if (item instanceof ForgeSpawnEggItem) {
+                spawnEgg(item);
                 continue;
             }
 

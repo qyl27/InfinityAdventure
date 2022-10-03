@@ -1,6 +1,8 @@
 package cx.rain.infadv.item.tier;
 
+import cx.rain.infadv.InfAdv;
 import cx.rain.infadv.item.ModItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
@@ -58,7 +60,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     }
 
     public String getName() {
-        return materialName;
+        return new ResourceLocation(InfAdv.MODID, materialName).toString();
     }
 
     public float getToughness() {

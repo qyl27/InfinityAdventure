@@ -13,8 +13,8 @@ public class ModTabs extends CreativeModeTab {
     public static final CreativeModeTab ORES = new ModTabs("ores", ModItems.RUBY);
     public static final CreativeModeTab FUNCTIONAL_ITEMS = new ModTabs("functional_items", ModItems.DREAM_PILLOW);
     public static final CreativeModeTab BATTLING = new ModTabs("battling", ModItems.MITHRIL_HELMET);
-    public static final CreativeModeTab TOOLS = new ModTabs("tools", ModItems.DREAM_PILLOW);
-
+    public static final CreativeModeTab TOOLS = new ModTabs("tools", ModItems.MITHRIL_AXE);
+    public static final CreativeModeTab MISC = new ModTabs("misc", ModItems.DWARF_SPAWN_EGG);
 
     protected Supplier<? extends ItemLike> iconItem;
 

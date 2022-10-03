@@ -1,8 +1,9 @@
-// 1.19.2	2022-10-02T16:10:14.507691	Block Item Models: infadv
+// 1.19.2	2022-10-03T15:34:49.0989666	Block Item Models: infadv
 86dd2526012d34cb1e53a993400864d02bf37c04 assets/infadv/models/item/adamantine_ingot.json
 92895cc834dbc98490a841a991a43bca5753a329 assets/infadv/models/item/aquamarine.json
 2d7743d6ea02be6f7b12bf0fa551f5fb18af5e09 assets/infadv/models/item/dream_pillow.json
 05837cbbfc23e9e832d27765b5caea4fa5875e15 assets/infadv/models/item/dwarf_furnace.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/dwarf_spawn_egg.json
 c5cb6c09e231e112b5e498f05dcea8059050ef51 assets/infadv/models/item/mica.json
 2da1de98451d666a7d656bb3f76bea7bb13039c3 assets/infadv/models/item/mithril_axe.json
 8a85784ae625966e30a91291af35644253c4156b assets/infadv/models/item/mithril_boots.json
@@ -14,7 +15,7 @@ fa826b70dc4261a336df6dc837c0c767db7cb461 assets/infadv/models/item/mithril_ingot
 34a718258c5fb6f7f04f562d58aa870efeb65b8c assets/infadv/models/item/mithril_pickaxe.json
 410ac584e30410adbbde4f8529e4cfedfa9b105d assets/infadv/models/item/mithril_shovel.json
 1422afe4f3fdae89a94cf49e7670b817a63f6424 assets/infadv/models/item/mithril_sword.json
-67748602db094e7cb6d440a7e3bad8be747cbd51 assets/infadv/models/item/rough_silver.json
+03042dd1b4be951fdf873eadf786b18979ae8569 assets/infadv/models/item/raw_silver.json
 8e15e686cbc33a24cbdeb247edc8abf26ef47a26 assets/infadv/models/item/ruby.json
 2739620f9c8a54d0cc9195047e8034e0ba26035d assets/infadv/models/item/silver_axe.json
 42b9a284a77f073eaf28c63624d578815066ee86 assets/infadv/models/item/silver_hoe.json

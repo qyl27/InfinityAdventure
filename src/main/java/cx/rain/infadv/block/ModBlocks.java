@@ -16,7 +16,7 @@ public class ModBlocks {
     protected static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, InfAdv.MODID);
 
     public static void register(IEventBus bus) {
-        InfAdv.getInstance().getLogger().info("Register InfAdv blocks.");
+        InfAdv.getInstance().getLogger().info("Register InfAdv Blocks.");
 
         BLOCKS.register(bus);
     }

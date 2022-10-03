@@ -24,6 +24,7 @@
   "block.infadv.silver_block": "银块",
   "block.infadv.silver_ore": "银矿石",
   "block.infadv.sky_grass_block": "天境草方块",
+  "block.infadv.sky_leaves": "天境树叶",
   "block.infadv.sky_log": "天境树原木",
   "block.infadv.sky_planks": "天境树木板",
   "block.infadv.sky_stone": "天境岩",
@@ -31,6 +32,7 @@
   "item.infadv.adamantine_ingot": "精金锭",
   "item.infadv.aquamarine": "海蓝宝石",
   "item.infadv.dream_pillow": "梦之枕",
+  "item.infadv.dwarf_spawn_egg": "矮人刷怪蛋",
   "item.infadv.mica": "云母",
   "item.infadv.mithril_axe": "秘银斧",
   "item.infadv.mithril_boots": "秘银靴子",
@@ -42,6 +44,7 @@
   "item.infadv.mithril_pickaxe": "秘银镐",
   "item.infadv.mithril_shovel": "秘银锹",
   "item.infadv.mithril_sword": "秘银剑",
+  "item.infadv.raw_silver": "粗银",
   "item.infadv.ruby": "红宝石",
   "item.infadv.silver_axe": "银斧",
   "item.infadv.silver_hoe": "银锄",
@@ -53,6 +56,7 @@
   "itemGroup.infadv_building_blocks": "无尽冒险 | 建筑方块",
   "itemGroup.infadv_functional_blocks": "无尽冒险 | 功能性方块",
   "itemGroup.infadv_functional_items": "无尽冒险 | 功能性物品",
+  "itemGroup.infadv_misc": "无尽冒险 | 杂项",
   "itemGroup.infadv_ores": "无尽冒险 | 矿石",
   "itemGroup.infadv_tools": "无尽冒险 | 工具"
 }

@@ -68,10 +68,22 @@ public abstract class BlockStateProviderBase extends BlockStateProvider {
         }
     }
 
-    public void block(Block block, ResourceLocation bottom, ResourceLocation top, ResourceLocation side) {
+    public void grassBlock(Block block, ResourceLocation bottom, ResourceLocation top, ResourceLocation side, ResourceLocation overlay) {
         getVariantBuilder(block).partialState()
                 .modelForState()
                 .modelFile(models().withExistingParent(name(block), "block/grass_block")
+                        .texture("particle", side)
+                        .texture("bottom", bottom)
+                        .texture("top", top)
+                        .texture("side", side)
+                        .texture("overlay", overlay))
+                .addModel();
+    }
+
+    public void block(Block block, ResourceLocation bottom, ResourceLocation top, ResourceLocation side) {
+        getVariantBuilder(block).partialState()
+                .modelForState()
+                .modelFile(models().withExistingParent(name(block), "block/block")
                         .texture("particle", side)
                         .texture("bottom", bottom)
                         .texture("top", top)

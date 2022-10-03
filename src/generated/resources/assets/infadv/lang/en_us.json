@@ -32,6 +32,7 @@
   "item.infadv.adamantine_ingot": "Adamantine Ingot",
   "item.infadv.aquamarine": "Aquamarine",
   "item.infadv.dream_pillow": "Dream Pillow",
+  "item.infadv.dwarf_spawn_egg": "Dwarf Spawn Egg",
   "item.infadv.mica": "Mica",
   "item.infadv.mithril_axe": "Mithril Axe",
   "item.infadv.mithril_boots": "Mithril Boots",
@@ -43,6 +44,7 @@
   "item.infadv.mithril_pickaxe": "Mithril Pickaxe",
   "item.infadv.mithril_shovel": "Mithril Shovel",
   "item.infadv.mithril_sword": "Mithril Sword",
+  "item.infadv.raw_silver": "Raw Silver",
   "item.infadv.ruby": "Ruby",
   "item.infadv.silver_axe": "Silver Axe",
   "item.infadv.silver_hoe": "Silver Hoe",
@@ -54,6 +56,7 @@
   "itemGroup.infadv_building_blocks": "InfinityAdventure | Building Blocks",
   "itemGroup.infadv_functional_blocks": "InfinityAdventure | Functional Blocks",
   "itemGroup.infadv_functional_items": "InfinityAdventure | Functional",
+  "itemGroup.infadv_misc": "InfinityAdventure | Miscellaneous",
   "itemGroup.infadv_ores": "InfinityAdventure | Ores",
   "itemGroup.infadv_tools": "InfinityAdventure | Tools"
 }
