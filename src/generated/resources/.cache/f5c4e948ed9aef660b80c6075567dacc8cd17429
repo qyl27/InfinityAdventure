@@ -1,8 +1,13 @@
-// 1.19.2	2022-10-03T15:34:49.0989666	Block Item Models: infadv
+// 1.19.2	2022-10-04T21:11:00.9540367	Block Item Models: infadv
 86dd2526012d34cb1e53a993400864d02bf37c04 assets/infadv/models/item/adamantine_ingot.json
 92895cc834dbc98490a841a991a43bca5753a329 assets/infadv/models/item/aquamarine.json
 2d7743d6ea02be6f7b12bf0fa551f5fb18af5e09 assets/infadv/models/item/dream_pillow.json
+d8a04065142526225a9d5fadebc7486fb96443b8 assets/infadv/models/item/dwarf_copper_coin.json
+6d998f9bb9c754871b0442896139688b4148b520 assets/infadv/models/item/dwarf_diamond_coin.json
+44c5a837030cb23b28ed14df913f47d4dba91942 assets/infadv/models/item/dwarf_emerald_coin.json
 05837cbbfc23e9e832d27765b5caea4fa5875e15 assets/infadv/models/item/dwarf_furnace.json
+b46a8cfe9be2971c00886d050cb1afb646646d7a assets/infadv/models/item/dwarf_golden_coin.json
+776e138bdbe9abf4cd6d761a8cd7f03cf4baf184 assets/infadv/models/item/dwarf_silver_coin.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/dwarf_spawn_egg.json
 c5cb6c09e231e112b5e498f05dcea8059050ef51 assets/infadv/models/item/mica.json
 2da1de98451d666a7d656bb3f76bea7bb13039c3 assets/infadv/models/item/mithril_axe.json

@@ -6,14 +6,11 @@ import cx.rain.infadv.item.tier.ModArmorMaterials;
 import cx.rain.infadv.item.tier.ModToolTiers;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.Supplier;
 
 public class ModItems {
     protected static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, InfAdv.MODID);
@@ -53,4 +50,9 @@ public class ModItems {
     public static final RegistryObject<HoeItem> MITHRIL_HOE = ITEMS.register("mithril_hoe", () -> new HoeItem(ModToolTiers.MITHRIL, -2, -1, new Item.Properties().tab(ModTabs.TOOLS)));
 
     public static final RegistryObject<ForgeSpawnEggItem> DWARF_SPAWN_EGG = ITEMS.register("dwarf_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.DWARF, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<Item> DWARF_COPPER_COIN = ITEMS.register("dwarf_copper_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> DWARF_SILVER_COIN = ITEMS.register("dwarf_silver_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> DWARF_GOLDEN_COIN = ITEMS.register("dwarf_golden_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> DWARF_DIAMOND_COIN = ITEMS.register("dwarf_diamond_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> DWARF_EMERALD_COIN = ITEMS.register("dwarf_emerald_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
 }

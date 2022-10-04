@@ -76,5 +76,10 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.MITHRIL_HOE, "秘银锄");
 
         addItem(ModItems.DWARF_SPAWN_EGG, "矮人刷怪蛋");
+        addItem(ModItems.DWARF_COPPER_COIN, "铜硬币");
+        addItem(ModItems.DWARF_SILVER_COIN, "银硬币");
+        addItem(ModItems.DWARF_GOLDEN_COIN, "金硬币");
+        addItem(ModItems.DWARF_DIAMOND_COIN, "钻石硬币");
+        addItem(ModItems.DWARF_EMERALD_COIN, "绿宝石硬币");
     }
 }

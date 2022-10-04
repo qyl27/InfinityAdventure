@@ -76,5 +76,10 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addItem(ModItems.MITHRIL_HOE, "Mithril Hoe");
 
         addItem(ModItems.DWARF_SPAWN_EGG, "Dwarf Spawn Egg");
+        addItem(ModItems.DWARF_COPPER_COIN, "Dwarf Copper Coin");
+        addItem(ModItems.DWARF_SILVER_COIN, "Dwarf Silver Coin");
+        addItem(ModItems.DWARF_GOLDEN_COIN, "Dwarf Golden Coin");
+        addItem(ModItems.DWARF_DIAMOND_COIN, "Dwarf Diamond Coin");
+        addItem(ModItems.DWARF_EMERALD_COIN, "Dwarf Emerald Coin");
     }
 }
