@@ -1,11 +1,11 @@
 package cx.rain.infadv.data.provider;
 
 import cx.rain.infadv.block.ModBlocks;
-import cx.rain.infadv.block.base.FacingBlockBase;
 import cx.rain.infadv.data.provider.base.BlockStateProviderBase;
-import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
 
@@ -23,5 +23,10 @@ public class ModBlockStateProvider extends BlockStateProviderBase {
         logBlock(ModBlocks.DWARF_PILLAR_BRICKS.get());
         logBlock(ModBlocks.SKY_LOG.get());
         grassBlock(ModBlocks.SKY_GRASS_BLOCK.get(), mcLoc("block/dirt"), modLoc("block/sky_grass_block_top"), modLoc("block/sky_grass_block"), modLoc("block/sky_grass_block"));
+
+        // TODO by lq2007: skip UNREALIZED blocks
+        skipBlocks(ModBlocks.TODO_DREAM_BED.get());
+        BlockModelBuilder unrealizedModel = models().cubeAll("unrealized_block", modLoc("block/unrealized"));
+        getVariantBuilder(ModBlocks.TODO_DREAM_BED.get()).forAllStates(bs -> ConfiguredModel.builder().modelFile(unrealizedModel).build());
     }
 }

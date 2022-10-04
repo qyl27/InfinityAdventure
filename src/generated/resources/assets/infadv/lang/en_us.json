@@ -63,5 +63,6 @@
   "itemGroup.infadv_functional_items": "InfinityAdventure | Functional",
   "itemGroup.infadv_misc": "InfinityAdventure | Miscellaneous",
   "itemGroup.infadv_ores": "InfinityAdventure | Ores",
-  "itemGroup.infadv_tools": "InfinityAdventure | Tools"
+  "itemGroup.infadv_tools": "InfinityAdventure | Tools",
+  "itemGroup.infadv_unrealized": "InfinityAdventure | Unrealized"
 }

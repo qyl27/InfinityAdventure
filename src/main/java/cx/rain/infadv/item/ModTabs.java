@@ -15,6 +15,7 @@ public class ModTabs extends CreativeModeTab {
     public static final CreativeModeTab BATTLING = new ModTabs("battling", ModItems.MITHRIL_HELMET);
     public static final CreativeModeTab TOOLS = new ModTabs("tools", ModItems.MITHRIL_AXE);
     public static final CreativeModeTab MISC = new ModTabs("misc", ModItems.DWARF_SPAWN_EGG);
+    public static final CreativeModeTab UNREALIZED = new ModTabs("unrealized", ModItems.AQUAMARINE);
 
     protected Supplier<? extends ItemLike> iconItem;
 

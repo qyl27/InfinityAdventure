@@ -1,15 +1,10 @@
 package cx.rain.infadv.block;
 
 import cx.rain.infadv.InfAdv;
-import cx.rain.infadv.block.base.OreBlockDropExperienceBase;
 import cx.rain.infadv.item.ModTabs;
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -60,4 +55,12 @@ public class ModBlockItems {
     public static final RegistryObject<BlockItem> RUBY_BLOCK = BLOCK_ITEMS.register("ruby_block", () -> new BlockItem(ModBlocks.RUBY_BLOCK.get(), new Item.Properties().tab(ModTabs.BUILDING_BLOCKS)));
     public static final RegistryObject<BlockItem> MICA_BLOCK = BLOCK_ITEMS.register("mica_block", () -> new BlockItem(ModBlocks.MICA_BLOCK.get(), new Item.Properties().tab(ModTabs.BUILDING_BLOCKS)));
 
+    // TODO by lq2007 ==================================================================================================
+    // TODO 使用到但未实现的方块 ===========================================================================================
+
+    public static final RegistryObject<Item> TODO_DREAM_BED = block(ModBlocks.TODO_DREAM_BED);
+
+    private static RegistryObject<Item> block(RegistryObject<Block> block) {
+        return BLOCK_ITEMS.register(block.getId().getNamespace(), () -> new BlockItem(block.get(), new Item.Properties().tab(ModTabs.UNREALIZED)));
+    }
 }

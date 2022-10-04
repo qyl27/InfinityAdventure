@@ -20,6 +20,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addCreativeTab(ModTabs.BATTLING, "无尽冒险 | 战斗用品");
         addCreativeTab(ModTabs.TOOLS, "无尽冒险 | 工具");
         addCreativeTab(ModTabs.MISC, "无尽冒险 | 杂项");
+        addCreativeTab(ModTabs.UNREALIZED, "无尽冒险 | 未实现");
 
         addBlock(ModBlocks.SILVER_ORE, "银矿石");
         addBlock(ModBlocks.MITHRIL_ORE, "秘银矿石");

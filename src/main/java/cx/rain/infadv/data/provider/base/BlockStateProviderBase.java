@@ -1,14 +1,11 @@
 package cx.rain.infadv.data.provider.base;
 
-import cx.rain.infadv.block.base.FacingBlockBase;
 import cx.rain.infadv.block.base.FurnaceBlockBase;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,7 +18,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public abstract class BlockStateProviderBase extends BlockStateProvider {
-    protected DeferredRegister<Block> deferredRegister = null;
+    protected DeferredRegister<Block> deferredRegister;
     protected Set<Block> skipped = new HashSet<>();
 
     public BlockStateProviderBase(DataGenerator generator, String modid,

@@ -20,6 +20,7 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addCreativeTab(ModTabs.BATTLING, "InfinityAdventure | Battling");
         addCreativeTab(ModTabs.TOOLS, "InfinityAdventure | Tools");
         addCreativeTab(ModTabs.MISC, "InfinityAdventure | Miscellaneous");
+        addCreativeTab(ModTabs.UNREALIZED, "InfinityAdventure | Unrealized");
 
         addBlock(ModBlocks.SILVER_ORE, "Silver Ore");
         addBlock(ModBlocks.MITHRIL_ORE, "Mithril Ore");
