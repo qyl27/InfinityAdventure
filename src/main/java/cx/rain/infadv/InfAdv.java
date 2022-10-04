@@ -4,7 +4,7 @@ import cx.rain.infadv.block.ModBlockItems;
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.entity.ModEntities;
 import cx.rain.infadv.item.ModItems;
-import cx.rain.infadv.world.IALevels;
+import cx.rain.infadv.world.ModLevels;
 import cx.rain.infadv.world.gen.ModConfiguredFeatures;
 import cx.rain.infadv.world.gen.ModPlacedFeatures;
 import net.minecraftforge.fml.common.Mod;
@@ -42,7 +42,7 @@ public class InfAdv {
 
         ModConfiguredFeatures.register(bus);
         ModPlacedFeatures.register(bus);
-        IALevels.REGISTRY.register(bus);
+        ModLevels.REGISTRY.register(bus);
 
         logger.info("Fresh beginning.");
     }

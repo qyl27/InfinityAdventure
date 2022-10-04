@@ -2,7 +2,7 @@ package cx.rain.infadv.handler;
 
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.util.Levels;
-import cx.rain.infadv.world.IALevels;
+import cx.rain.infadv.world.ModLevels;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -21,7 +21,7 @@ public class CommonEventHandler {
         BlockPos pos = event.getPos();
         Player player = event.getEntity();
         Level level = player.getLevel();
-        if (level.getBlockState(pos).is(ModBlocks.TODO_DREAM_BED.get()) && Levels.to(player, IALevels.ETHER)) {
+        if (level.getBlockState(pos).is(ModBlocks.TODO_DREAM_BED.get()) && Levels.to(player, ModLevels.ETHER)) {
             event.setResult(Player.BedSleepingProblem.OTHER_PROBLEM);
         }
     }
@@ -29,7 +29,7 @@ public class CommonEventHandler {
     @SubscribeEvent
     public static void onDropLevel(LivingDamageEvent event) {
         Entity entity = event.getEntity();
-        if (event.getSource() == DamageSource.OUT_OF_WORLD && Levels.is(entity.getLevel(), IALevels.ETHER)) {
+        if (event.getSource() == DamageSource.OUT_OF_WORLD && Levels.is(entity.getLevel(), ModLevels.ETHER)) {
             if (Levels.to(entity, Level.OVERWORLD)) {
                 event.setCanceled(true);
             }

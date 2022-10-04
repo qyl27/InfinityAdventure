@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
-public class IAFeatures {
+public class ModFeatures {
 
     public static final Holder<PlacedFeature> ETHER_COAL = new OreFeatureBuilder()
             .addReplaceRule(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), Blocks.COAL_ORE)

@@ -13,7 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class IALevels {
+public class ModLevels {
 
     public static final DeferredRegister<Biome> REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, InfAdv.MODID);
 
@@ -30,7 +30,7 @@ public class IALevels {
                     .fogColor(0xC0D8FF)
                     .build())
             .precipitation(Biome.Precipitation.NONE)
-            .generationSettings(IAFeatures.peaceOres())
+            .generationSettings(ModFeatures.peaceOres())
             .temperatureAdjustment(Biome.TemperatureModifier.NONE)
             .build());
 

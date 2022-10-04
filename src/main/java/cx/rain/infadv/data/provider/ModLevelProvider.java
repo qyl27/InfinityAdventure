@@ -3,7 +3,7 @@ package cx.rain.infadv.data.provider;
 import cx.rain.infadv.InfAdv;
 import cx.rain.infadv.data.provider.base.WorldGenProviderBase;
 import cx.rain.infadv.world.EndIslandDensityFunction;
-import cx.rain.infadv.world.IALevels;
+import cx.rain.infadv.world.ModLevels;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -14,9 +14,9 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 
 import java.util.List;
 
-public class IALevelProvider extends WorldGenProviderBase {
+public class ModLevelProvider extends WorldGenProviderBase {
 
-    public IALevelProvider(DataGenerator generator) {
+    public ModLevelProvider(DataGenerator generator) {
         super(generator, InfAdv.MODID, false);
     }
 
@@ -24,7 +24,7 @@ public class IALevelProvider extends WorldGenProviderBase {
 
     @Override
     protected void addAll() {
-        dimensionType = add(IALevels.ETHER.location(), dimensionType(true, false, false,
+        dimensionType = add(ModLevels.ETHER.location(), dimensionType(true, false, false,
                 true, 1, true, true, -64, 384,
                 384, BlockTags.INFINIBURN_OVERWORLD, BuiltinDimensionTypes.OVERWORLD_EFFECTS, 0,
                 true, true, 0, 7, 0));
@@ -49,7 +49,7 @@ public class IALevelProvider extends WorldGenProviderBase {
                 SurfaceRules.state(Blocks.DIRT.defaultBlockState()),
                 100, true, false, false, true,
                 List.of(spawnParam().build())));
-        add(IALevels.ETHER.location(), new LevelStem(getDimensionType(dimensionType), chunkGenerator(noiseSettings, biomeSource(IALevels.ETHER_BIOME))));
+        add(ModLevels.ETHER.location(), new LevelStem(getDimensionType(dimensionType), chunkGenerator(noiseSettings, biomeSource(ModLevels.ETHER_BIOME))));
     }
 
     private DensityFunctionBuilder endDensity() {

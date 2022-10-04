@@ -32,7 +32,7 @@ public class DataGen {
             generator.addProvider(true, new ModLanguageProviderENUS(generator, InfAdv.MODID));
 
             generator.addProvider(true, new ModBiomeModifierProvider(generator, InfAdv.MODID));
-            generator.addProvider(true, new IALevelProvider(generator));
+            generator.addProvider(true, new ModLevelProvider(generator));
         }
 
         if (event.includeReports()) {

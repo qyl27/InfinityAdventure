@@ -1,7 +1,6 @@
 package cx.rain.infadv.world;
 
 import com.mojang.serialization.MapCodec;
-import cx.rain.infadv.data.provider.IALevelProvider;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.DensityFunction;
