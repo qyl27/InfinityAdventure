@@ -41,7 +41,7 @@ public class ModBlocks {
     public static final RegistryObject<RotatedPillarBlock> DWARF_PILLAR_BRICKS = BLOCKS.register("dwarf_pillar_bricks", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK)));
     public static final RegistryObject<Block> ANCIENT_DWARF_BRICKS = BLOCKS.register("ancient_dwarf_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK)));
     public static final RegistryObject<Block> ANCIENT_DWARF_CRATE = BLOCKS.register("ancient_dwarf_crate", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK)));   // Todo: crate container and base.
-    public static final RegistryObject<FurnaceBlockBase> DWARF_FURNACE = BLOCKS.register("dwarf_furnace", () -> new FurnaceBlockBase());    // Todo: functional block.
+    public static final RegistryObject<FurnaceBlockBase> DWARF_FURNACE = BLOCKS.register("dwarf_furnace", FurnaceBlockBase::new);    // Todo: functional block.
     public static final RegistryObject<FacingBlockBase> BEER_BARREL = BLOCKS.register("beer_barrel", () -> new FacingBlockBase(BlockBehaviour.Properties.copy(Blocks.BARREL)));    // Todo: functional block.
 
     public static final RegistryObject<GrassBlockBase> SKY_GRASS_BLOCK = BLOCKS.register("sky_grass_block", () -> new GrassBlockBase(BlockBehaviour.Properties.of(Material.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)));    // Todo: Material and grass grow.
