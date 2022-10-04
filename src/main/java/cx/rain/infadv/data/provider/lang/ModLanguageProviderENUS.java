@@ -44,7 +44,7 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addBlock(ModBlocks.SKY_PLANKS, "Skyland Planks");
         addBlock(ModBlocks.SKY_LEAVES, "Skyland Leaves");
         addBlock(ModBlocks.SKY_STONE, "Skyland Stone");
-        addBlock(ModBlocks.HEAVEN_ROCK, "Heaven Rock");
+        addBlock(ModBlocks.HEAVEN_ROCK, "Heaven Bedrock");
         addBlock(ModBlocks.HEAVEN_BRICKS, "Heaven Bricks");
         addBlock(ModBlocks.MICA_ORE, "Mica Ore");
         addBlock(ModBlocks.SILVER_BLOCK, "Silver Block");

@@ -44,8 +44,8 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addBlock(ModBlocks.SKY_PLANKS, "天境树木板");
         addBlock(ModBlocks.SKY_LEAVES, "天境树叶");
         addBlock(ModBlocks.SKY_STONE, "天境岩");
-        addBlock(ModBlocks.HEAVEN_ROCK, "天使城堡石");
-        addBlock(ModBlocks.HEAVEN_BRICKS, "天使城堡砖");
+        addBlock(ModBlocks.HEAVEN_ROCK, "天堂基石");
+        addBlock(ModBlocks.HEAVEN_BRICKS, "天堂砖块");
         addBlock(ModBlocks.MICA_ORE, "云母矿石");
         addBlock(ModBlocks.SILVER_BLOCK, "银块");
         addBlock(ModBlocks.MITHRIL_BLOCK, "秘银块");
@@ -59,7 +59,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.AQUAMARINE, "海蓝宝石");
         addItem(ModItems.RAW_SILVER, "粗银");
         addItem(ModItems.MICA, "云母");
-        addItem(ModItems.DREAM_PILLOW, "梦之枕");
+        addItem(ModItems.DREAM_PILLOW, "织梦之枕");
         addItem(ModItems.SILVER_SWORD, "银剑");
         addItem(ModItems.SILVER_AXE, "银斧");
         addItem(ModItems.SILVER_PICKAXE, "银镐");
