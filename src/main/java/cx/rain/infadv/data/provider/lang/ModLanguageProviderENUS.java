@@ -19,6 +19,7 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addCreativeTab(ModTabs.FUNCTIONAL_ITEMS, "InfinityAdventure | Functional");
         addCreativeTab(ModTabs.BATTLING, "InfinityAdventure | Battling");
         addCreativeTab(ModTabs.TOOLS, "InfinityAdventure | Tools");
+        addCreativeTab(ModTabs.FOODS, "InfinityAdventure | Foods");
         addCreativeTab(ModTabs.MISC, "InfinityAdventure | Miscellaneous");
 
         addBlock(ModBlocks.SILVER_ORE, "Silver Ore");
@@ -81,5 +82,28 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addItem(ModItems.DWARF_GOLDEN_COIN, "Dwarf Golden Coin");
         addItem(ModItems.DWARF_DIAMOND_COIN, "Dwarf Diamond Coin");
         addItem(ModItems.DWARF_EMERALD_COIN, "Dwarf Emerald Coin");
+        addItem(ModItems.MICA_SWORD, "Mica Sword");
+        addItem(ModItems.MICA_AXE, "Mica Axe");
+        addItem(ModItems.MICA_PICKAXE, "Mica Pickaxe");
+        addItem(ModItems.MICA_SHOVEL, "Mica Shovel");
+        addItem(ModItems.MICA_HOE, "Mica Hoe");
+
+        addItem(ModItems.CUP, "Cup");
+        addItem(ModItems.CUP_AMBROSIA, "Cup of Ambrosia");
+        addItem(ModItems.CUP_DWARF_MALT, "Cup of Dwarf Malt");
+        addItem(ModItems.CUP_EMERALD_SUNRISE, "Cup of Emerald Sunrise");
+        addItem(ModItems.CUP_GOLDEN_SCORPION, "Cup of Golden Scorpion");
+        addItem(ModItems.CUP_RUM, "Cup of Rum");
+        addItem(ModItems.CUP_VODKA, "Cup of Vodka");
+        addItem(ModItems.CUP_WINE, "Cup of Wine");
+        addItem(ModItems.WINE_CHOCOLATE_DWARF_MALT, "Wine Chocolate of Dwarf Malt");
+        addItem(ModItems.WINE_CHOCOLATE_EMERALD_SUNRISE, "Wine Chocolate of Emerald Sunrise");
+        addItem(ModItems.WINE_CHOCOLATE_GOLDEN_SCORPION, "Wine Chocolate of Golden Scorpion");
+        addItem(ModItems.WINE_CHOCOLATE_RUM, "Wine Chocolate of Rum");
+        addItem(ModItems.WINE_CHOCOLATE_VODKA, "Wine Chocolate of Vodka");
+        addItem(ModItems.WINE_CHOCOLATE, "Wine Chocolate of Wine");
+        addItem(ModItems.SOUL_SALT, "Soul Salt");
+        addItem(ModItems.SOUL_WHISTLE, "Soul Whistle");
+        addItem(ModItems.TARANTULA_EGG, "Tarantula Egg");
     }
 }

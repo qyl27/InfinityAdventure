@@ -1,5 +1,4 @@
-// 1.19.2	2022-10-05T13:02:28.2558134	Worldgen: infadv
+// 1.19.2	2022-10-05T18:47:47.4777398	Worldgen: infadv
 343fa3e8aad3476f2dcdffeba3d147d0ed5b016e data/infadv/dimension/ether.json
-161b8bd15215f6dd76784d0820698ee16d259814 data/infadv/dimension/ether2.json
 711278dc5f1f347deac407c2475596f266b63367 data/infadv/dimension_type/ether.json
-8a35e0d0768a8e538dd804b3f659ebf670b0382a data/infadv/worldgen/noise_settings/ether_noise_settings.json
+348cb5755fc340ca3a06865bff347e5dd9875f21 data/infadv/worldgen/noise_settings/ether_noise_settings.json

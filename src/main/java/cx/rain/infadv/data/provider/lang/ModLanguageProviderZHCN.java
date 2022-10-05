@@ -19,6 +19,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addCreativeTab(ModTabs.FUNCTIONAL_ITEMS, "无尽冒险 | 功能性物品");
         addCreativeTab(ModTabs.BATTLING, "无尽冒险 | 战斗用品");
         addCreativeTab(ModTabs.TOOLS, "无尽冒险 | 工具");
+        addCreativeTab(ModTabs.FOODS, "无尽冒险 | 食物");
         addCreativeTab(ModTabs.MISC, "无尽冒险 | 杂项");
 
         addBlock(ModBlocks.SILVER_ORE, "银矿石");
@@ -81,5 +82,28 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.DWARF_GOLDEN_COIN, "金硬币");
         addItem(ModItems.DWARF_DIAMOND_COIN, "钻石硬币");
         addItem(ModItems.DWARF_EMERALD_COIN, "绿宝石硬币");
+        addItem(ModItems.MICA_SWORD, "云母剑");
+        addItem(ModItems.MICA_AXE, "云母斧");
+        addItem(ModItems.MICA_PICKAXE, "云母镐");
+        addItem(ModItems.MICA_SHOVEL, "云母锹");
+        addItem(ModItems.MICA_HOE, "云母锄");
+
+        addItem(ModItems.CUP, "酒杯");
+        addItem(ModItems.CUP_AMBROSIA, "仙馔蜜酒");
+        addItem(ModItems.CUP_DWARF_MALT, "矮人麦芽酒");
+        addItem(ModItems.CUP_EMERALD_SUNRISE, "绿宝石日出鸡尾酒");
+        addItem(ModItems.CUP_GOLDEN_SCORPION, "金蝎药酒");
+        addItem(ModItems.CUP_RUM, "朗姆酒");
+        addItem(ModItems.CUP_VODKA, "伏特加");
+        addItem(ModItems.CUP_WINE, "葡萄酒");
+        addItem(ModItems.WINE_CHOCOLATE_DWARF_MALT, "麦芽酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_EMERALD_SUNRISE, "金蝎酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_GOLDEN_SCORPION, "绿宝石酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_RUM, "朗姆酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_VODKA, "伏特加酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE, "葡萄酒心巧克力");
+        addItem(ModItems.SOUL_SALT, "灵魂盐");
+        addItem(ModItems.SOUL_WHISTLE, "灵魂笛哨");
+        addItem(ModItems.TARANTULA_EGG, "狼蛛卵");
     }
 }
