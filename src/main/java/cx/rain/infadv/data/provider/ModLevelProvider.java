@@ -20,11 +20,11 @@ public class ModLevelProvider extends WorldGenProviderBase {
         super(generator, InfAdv.MODID, false);
     }
 
-    ResourceLocation dimensionType;
+    ResourceLocation dimensionEther;
 
     @Override
     protected void addAll() {
-        dimensionType = add(ModLevels.ETHER.location(), dimensionType(true, false, false,
+        dimensionEther = add(ModLevels.ETHER.location(), dimensionType(true, false, false,
                 true, 1, true, true, -64, 384,
                 384, BlockTags.INFINIBURN_OVERWORLD, BuiltinDimensionTypes.OVERWORLD_EFFECTS, 0,
                 true, true, 0, 7, 0));
@@ -46,10 +46,10 @@ public class ModLevelProvider extends WorldGenProviderBase {
                 densityZero(), // density("y").rangeChoice(-60, 51, densityNoise(Noises.ORE_VEININESS, 1.5, 1.5), density(0)).interpolated(),
                 densityZero(), // yOreA.max(yOreB).add(-0.08),
                 densityZero(), // densityNoise(Noises.ORE_GAP),
-                SurfaceRules.state(Blocks.DIRT.defaultBlockState()),
+                SurfaceRules.state(Blocks.AIR.defaultBlockState()),
                 100, true, false, false, true,
                 List.of(spawnParam().build())));
-        add(ModLevels.ETHER.location(), new LevelStem(getDimensionType(dimensionType), chunkGenerator(noiseSettings, biomeSource(ModLevels.ETHER_BIOME))));
+        add(ModLevels.ETHER.location(), new LevelStem(getDimensionType(dimensionEther), chunkGenerator(noiseSettings, biomeSource(ModLevels.ETHER_BIOME))));
     }
 
     private DensityFunctionBuilder endDensity() {

@@ -1,0 +1,12 @@
+{
+  "type": "infadv:ether",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:plains",
+      "features": false,
+      "lakes": false,
+      "layers": []
+    }
+  }
+}

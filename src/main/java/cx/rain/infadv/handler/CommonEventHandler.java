@@ -1,6 +1,6 @@
 package cx.rain.infadv.handler;
 
-import cx.rain.infadv.block.ModBlocks;
+import cx.rain.infadv.unrealized.UnrealizedElements;
 import cx.rain.infadv.util.Levels;
 import cx.rain.infadv.world.ModLevels;
 import net.minecraft.core.BlockPos;
@@ -21,7 +21,7 @@ public class CommonEventHandler {
         BlockPos pos = event.getPos();
         Player player = event.getEntity();
         Level level = player.getLevel();
-        if (level.getBlockState(pos).is(ModBlocks.TODO_DREAM_BED.get()) && Levels.to(player, ModLevels.ETHER)) {
+        if (level.getBlockState(pos).is(UnrealizedElements.dreamBed()) && Levels.to(player, ModLevels.ETHER)) {
             event.setResult(Player.BedSleepingProblem.OTHER_PROBLEM);
         }
     }

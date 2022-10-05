@@ -4,6 +4,7 @@ import cx.rain.infadv.block.ModBlockItems;
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.entity.ModEntities;
 import cx.rain.infadv.item.ModItems;
+import cx.rain.infadv.unrealized.UnrealizedElements;
 import cx.rain.infadv.world.ModLevels;
 import cx.rain.infadv.world.gen.ModConfiguredFeatures;
 import cx.rain.infadv.world.gen.ModPlacedFeatures;
@@ -37,6 +38,7 @@ public class InfAdv {
         ModBlocks.register(bus);
         ModItems.register(bus);
         ModBlockItems.register(bus);
+        UnrealizedElements.register(bus);
 
         ModEntities.register(bus);
 

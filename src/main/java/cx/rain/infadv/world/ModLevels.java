@@ -18,6 +18,7 @@ public class ModLevels {
     public static final DeferredRegister<Biome> REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, InfAdv.MODID);
 
     public static final ResourceKey<Level> ETHER = dim("ether");
+    public static final ResourceKey<Level> ETHER2 = dim("ether2");
 
     public static final RegistryObject<Biome> ETHER_BIOME = REGISTRY.register("ether", () -> new Biome.BiomeBuilder()
             .downfall(0.4f)

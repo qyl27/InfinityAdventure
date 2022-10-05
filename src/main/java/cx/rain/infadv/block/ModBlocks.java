@@ -3,7 +3,6 @@ package cx.rain.infadv.block;
 import cx.rain.infadv.InfAdv;
 import cx.rain.infadv.block.base.*;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -12,8 +11,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.Supplier;
 
 public class ModBlocks {
     protected static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, InfAdv.MODID);
@@ -59,16 +56,4 @@ public class ModBlocks {
     public static final RegistryObject<Block> MITHRIL_BLOCK = BLOCKS.register("mithril_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.METAL).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL)));
     public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.EMERALD).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL)));
     public static final RegistryObject<Block> MICA_BLOCK = BLOCKS.register("mica_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.QUARTZ).requiresCorrectToolForDrops().strength(0.8f, 1.0f).sound(SoundType.STONE)));
-
-    // TODO by lq2007 ==================================================================================================
-    // TODO 使用到但未实现的方块 ===========================================================================================
-    public static final RegistryObject<Block> TODO_DREAM_BED = simple("dream_bed", () -> new BedBlock(DyeColor.ORANGE, BlockBehaviour.Properties.copy(Blocks.ORANGE_BED)));
-
-    private static RegistryObject<Block> simple(String name) {
-        return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    }
-
-    private static RegistryObject<Block> simple(String name, Supplier<? extends Block> block) {
-        return BLOCKS.register(name, block);
-    }
 }
