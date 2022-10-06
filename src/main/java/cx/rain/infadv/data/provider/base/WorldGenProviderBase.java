@@ -31,6 +31,7 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.*;
 import net.minecraft.world.level.levelgen.flat.FlatLevelGeneratorSettings;
+import net.minecraft.world.level.levelgen.presets.WorldPreset;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.placement.ConcentricRingsStructurePlacement;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
@@ -62,6 +63,7 @@ public abstract class WorldGenProviderBase implements DataProvider {
     private final DataGenerator generator;
     private final String modid;
 
+    protected final MappedRegistry<WorldPreset> worldPresets;
     protected final MappedRegistry<LevelStem> levelStems;
     protected final MappedRegistry<DimensionType> dimensionTypes;
     protected final MappedRegistry<StructureSet> structureSets;
@@ -79,6 +81,7 @@ public abstract class WorldGenProviderBase implements DataProvider {
 
         this.registryAccess = RegistryAccess.builtinCopy();
         this.levelStems = new MappedRegistry<>(Registry.LEVEL_STEM_REGISTRY, Lifecycle.stable(), null);
+        this.worldPresets = (MappedRegistry<WorldPreset>) registryAccess.ownedRegistryOrThrow(Registry.WORLD_PRESET_REGISTRY);
         this.dimensionTypes = (MappedRegistry<DimensionType>) registryAccess.ownedRegistryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
         this.structureSets = (MappedRegistry<StructureSet>) registryAccess.ownedRegistryOrThrow(Registry.STRUCTURE_SET_REGISTRY);
         this.biomes = (MappedRegistry<Biome>) registryAccess.ownedRegistryOrThrow(Registry.BIOME_REGISTRY);
@@ -205,6 +208,22 @@ public abstract class WorldGenProviderBase implements DataProvider {
 
     protected Holder<DimensionType> getDimensionType(String name) {
         return get(name, dimensionTypes);
+    }
+
+    protected ResourceLocation add(ResourceLocation name, WorldPreset value) {
+        return add(name, value, worldPresets);
+    }
+
+    protected Holder<WorldPreset> getWorldPreset(ResourceLocation name) {
+        return get(name, () -> new WorldPreset(Collections.emptyMap()), worldPresets);
+    }
+
+    protected Holder<WorldPreset> getWorldPreset(ResourceKey<WorldPreset> name) {
+        return get(name, worldPresets);
+    }
+
+    protected Holder<WorldPreset> getWorldPreset(String name) {
+        return get(name, worldPresets);
     }
 
     protected ResourceLocation add(ResourceLocation name, StructureSet value) {
@@ -351,6 +370,41 @@ public abstract class WorldGenProviderBase implements DataProvider {
     }
 
     /**
+     * @param fixedTime          游戏内的昼夜时间将会固定在这个指定值上。
+     * @param hasSkyLight        该维度是否有天空光照
+     * @param hasCeiling         该维度是否拥有一个基岩天花板。注意这仅仅是逻辑上是否拥有一个天花板。维度是否真的有一个天花板与此无关。
+     * @param ultraWarm          维度是否表现得类似于原版的下界（水会蒸发，海绵会变干）。这也会使得熔岩流动更快、扩散更远。
+     * @param natural            为 false 时，此维度中的指南针会随机转动，且无法用床睡觉或是重置重生点（即使 bed_works 为 true）。
+     *                           为 true 时，此维中的下界传送门方块会生成僵尸猪灵。
+     * @param coordinateScale    传送到该维度时的坐标缩放值。取值范围为 0.00001 到 30000000.0 的闭区间。下界为 8，主世界及末地为 1
+     * @param bedWorks           玩家试图使用床时，其是否不会爆炸。
+     * @param respawnAnchorWorks 玩家试图使用重生锚时，其是否不会爆炸。
+     * @param minY               该维度中可以存在方块的最低高度。数值必须在 -2032 至 2031 之间且为 16 的整数倍（也就是说，-2032 是最小有效值，
+     *                           2016 是最大有效值）。主世界为 -64，末地和下界为 0
+     * @param height             该维度中可以存在方块的总高度。数值必须在 16 至 4064 之间且为 16 的整数倍。
+     *                           维度中可以存在方块的最大高度值为 min_y 与 height 值之和减去 1，不能超过 2031。主世界为 384，末地和下界为 256
+     * @param logicalHeight      玩家使用紫颂果或下界传送门可以到达的总高度。不会影响超过该限制高度的既有传送门。取值为 0 到 4064 的闭区间，
+     *                           且不能大于 height。主世界为 384
+     * @param infiniburn         该维度中火可以在哪些方块上永久燃烧。
+     * @param effectsLocation    （可选，默认为minecraft:overworld）用于确定该维度的天空效果。
+     *                           <br>设为overworld（主世界）会使维度的天空中出现云、太阳、星星和月亮；
+     *                           <br>设为the_nether（下界）会使维度中有浓厚的迷雾阻挡视野，效果与下界类似；
+     *                           <br>设为the_end（末地）会使维度拥有类似于末地的，黑暗的、斑驳的天空，并无视各生物群系自带的天空颜色与迷雾颜色。
+     * @param ambientLight       该维度拥有多少环境光照（设置为 0 时，完全跟随光照变化；设置为 1 时，无环境光照；需要测试精确的效果）。主世界 0
+     * @param monsterSettings    怪物生成设置
+     * @see <a href="https://minecraft.fandom.com/zh/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%B4%E5%BA%A6/dimension_type">WIKI: 自定义维度/dimension type</a>
+     */
+    protected DimensionType dimensionType(long fixedTime, boolean hasSkyLight, boolean hasCeiling, boolean ultraWarm,
+                                          boolean natural, double coordinateScale, boolean bedWorks, boolean respawnAnchorWorks,
+                                          int minY, int height, int logicalHeight, TagKey<Block> infiniburn,
+                                          ResourceLocation effectsLocation, float ambientLight,
+                                          DimensionType.MonsterSettings monsterSettings) {
+        return new DimensionType(OptionalLong.of(fixedTime), hasSkyLight, hasCeiling, ultraWarm, natural, coordinateScale,
+                bedWorks, respawnAnchorWorks, minY, height, logicalHeight, infiniburn, effectsLocation, ambientLight,
+                monsterSettings);
+    }
+
+    /**
      * @param hasSkyLight                 该维度是否有天空光照
      * @param hasCeiling                  该维度是否拥有一个基岩天花板。注意这仅仅是逻辑上是否拥有一个天花板。维度是否真的有一个天花板与此无关。
      * @param ultraWarm                   维度是否表现得类似于原版的下界（水会蒸发，海绵会变干）。这也会使得熔岩流动更快、扩散更远。
@@ -395,7 +449,57 @@ public abstract class WorldGenProviderBase implements DataProvider {
     }
 
     /**
-     * @param noiseSettings         噪音设置
+     * @param fixedTime                   游戏内的昼夜时间将会固定在这个指定值上。
+     * @param hasSkyLight                 该维度是否有天空光照
+     * @param hasCeiling                  该维度是否拥有一个基岩天花板。注意这仅仅是逻辑上是否拥有一个天花板。维度是否真的有一个天花板与此无关。
+     * @param ultraWarm                   维度是否表现得类似于原版的下界（水会蒸发，海绵会变干）。这也会使得熔岩流动更快、扩散更远。
+     * @param natural                     为 false 时，此维度中的指南针会随机转动，且无法用床睡觉或是重置重生点（即使 bed_works 为 true）。
+     *                                    为 true 时，此维中的下界传送门方块会生成僵尸猪灵。
+     * @param coordinateScale             传送到该维度时的坐标缩放值。取值范围为 0.00001 到 30000000.0 的闭区间。下界为 8，主世界及末地为 1
+     * @param bedWorks                    玩家试图使用床时，其是否不会爆炸。
+     * @param respawnAnchorWorks          玩家试图使用重生锚时，其是否不会爆炸。
+     * @param minY                        该维度中可以存在方块的最低高度。数值必须在 -2032 至 2031 之间且为 16 的整数倍（也就是说，-2032 是最小有效值，
+     *                                    2016 是最大有效值）。主世界为 -64，末地和下界为 0
+     * @param height                      该维度中可以存在方块的总高度。数值必须在 16 至 4064 之间且为 16 的整数倍。
+     *                                    维度中可以存在方块的最大高度值为 min_y 与 height 值之和减去 1，不能超过 2031。主世界为 384，末地和下界为 256
+     * @param logicalHeight               玩家使用紫颂果或下界传送门可以到达的总高度。不会影响超过该限制高度的既有传送门。取值为 0 到 4064 的闭区间，
+     *                                    且不能大于 height。主世界为 384
+     * @param infiniburn                  该维度中火可以在哪些方块上永久燃烧。
+     * @param effectsLocation             （可选，默认为minecraft:overworld）用于确定该维度的天空效果。
+     *                                    <br>设为overworld（主世界）会使维度的天空中出现云、太阳、星星和月亮；
+     *                                    <br>设为the_nether（下界）会使维度中有浓厚的迷雾阻挡视野，效果与下界类似；
+     *                                    <br>设为the_end（末地）会使维度拥有类似于末地的，黑暗的、斑驳的天空，并无视各生物群系自带的天空颜色与迷雾颜色。
+     * @param ambientLight                该维度拥有多少环境光照（设置为 0 时，完全跟随光照变化；设置为 1 时，无环境光照；需要测试精确的效果）。主世界 0
+     * @param piglinSafe                  猪灵和疣猪兽是否不会僵尸化。
+     * @param hasRaids                    带有不祥之兆的玩家是否可以触发袭击。
+     * @param monsterSpawnLightMin        取值为 0 到 15 的闭区间。怪物生成位置的最大光照区间中的最小值。
+     * @param monsterSpawnLightMax        取值为 0 到 15 的闭区间。怪物生成位置的最大光照区间中的最大值。
+     *                                    <br>该光照的计算公式是：雷雨时 max(skyLight - 10, blockLight)，
+     *                                    其他天气时 max(internalSkyLight, blockLight)。
+     * @param monsterSpawnBlockLightLimit 取值为 0 到 15 的闭区间。怪物生成位置的最大方块光照。
+     * @see <a href="https://minecraft.fandom.com/zh/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%B4%E5%BA%A6/dimension_type">WIKI: 自定义维度/dimension type</a>
+     */
+    protected DimensionType dimensionType(long fixedTime, boolean hasSkyLight, boolean hasCeiling, boolean ultraWarm,
+                                          boolean natural, double coordinateScale, boolean bedWorks, boolean respawnAnchorWorks,
+                                          int minY, int height, int logicalHeight, TagKey<Block> infiniburn,
+                                          ResourceLocation effectsLocation, float ambientLight, boolean piglinSafe,
+                                          boolean hasRaids, int monsterSpawnLightMin, int monsterSpawnLightMax,
+                                          int monsterSpawnBlockLightLimit) {
+        IntProvider monsterSpawnLight = monsterSpawnLightMax == monsterSpawnLightMin
+                ? ConstantInt.of(monsterSpawnLightMin)
+                : UniformInt.of(monsterSpawnLightMin, monsterSpawnLightMax);
+        return new DimensionType(OptionalLong.of(fixedTime), hasSkyLight, hasCeiling, ultraWarm, natural, coordinateScale,
+                bedWorks, respawnAnchorWorks, minY, height, logicalHeight, infiniburn, effectsLocation, ambientLight,
+                new DimensionType.MonsterSettings(piglinSafe, hasRaids, monsterSpawnLight, monsterSpawnBlockLightLimit));
+    }
+
+    /**
+     * @param minY                  地形开始生成的最低高度。取值为 -2032 到 2031 的闭区间，且必须是 16 的整数倍。
+     * @param height                地形生成的总高度。取值为 0 到 4064 的闭区间，且必须是 16 的整数倍。min_y + height 不能超过 2032。
+     * @param noiseSizeHorizontal   取值为 0 到 4 的闭区间。主世界和下界为 1，末地为 2
+     * @param noiseSizeVertical     取值为 0 到 4 的闭区间。主世界和下界为 2，末地为 1
+     * @param defaultBlock          该维度地形的默认的方块。
+     * @param defaultFluid          该维度默认的流体，用于生成海洋和湖。
      * @param defaultBlock          该维度地形的默认的方块。
      * @param defaultFluid          该维度默认的流体，用于生成海洋和湖。
      * @param noiseRouter           将密度函数应用于用于世界生成的噪声参数。
@@ -411,81 +515,13 @@ public abstract class WorldGenProviderBase implements DataProvider {
      * @param useLegacyRandomSource 是否使用 1.18 之前的旧的随机数生成器来生成世界。
      * @see <a href="https://minecraft.fandom.com/zh/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90#%E5%99%AA%E5%A3%B0%E8%AE%BE%E7%BD%AE">WIKI：自定义世界生成#噪声设置</a>
      */
-    protected NoiseGeneratorSettings noiseGeneratorSettings(NoiseSettings noiseSettings, BlockState defaultBlock,
-                                                            BlockState defaultFluid, NoiseRouter noiseRouter,
-                                                            SurfaceRules.RuleSource surfaceRule,
+    protected NoiseGeneratorSettings noiseGeneratorSettings(int minY, int height, int noiseSizeHorizontal, int noiseSizeVertical,
+                                                            BlockState defaultBlock, BlockState defaultFluid,
+                                                            NoiseRouter noiseRouter, SurfaceRules.RuleSource surfaceRule,
                                                             List<Climate.ParameterPoint> spawnTarget, int seaLevel,
                                                             boolean disableMobGeneration, boolean aquifersEnabled,
                                                             boolean oreVeinsEnabled, boolean useLegacyRandomSource) {
-        return new NoiseGeneratorSettings(noiseSettings, defaultBlock, defaultBlock, noiseRouter, surfaceRule,
-                spawnTarget, seaLevel, disableMobGeneration, aquifersEnabled, oreVeinsEnabled, useLegacyRandomSource);
-    }
-
-    /**
-     * @param minY                            地形开始生成的最低高度。取值为 -2032 到 2031 的闭区间，且必须是 16 的整数倍。
-     * @param height                          地形生成的总高度。取值为 0 到 4064 的闭区间，且必须是 16 的整数倍。min_y + height 不能超过 2032。
-     * @param noiseSizeHorizontal             取值为 0 到 4 的闭区间。主世界和下界为 1，末地为 2
-     * @param noiseSizeVertical               取值为 0 到 4 的闭区间。主世界和下界为 2，末地为 1
-     * @param defaultBlock                    该维度地形的默认的方块。
-     * @param defaultFluid                    该维度默认的流体，用于生成海洋和湖。
-     * @param barrierNoise                    影响是否使用方块分隔含水层和洞穴其他区域。函数值越大越有可能分隔。
-     * @param fluidLevelFloodednessNoise      影响含水层生成液体的的概率。函数值越大越有可能生成。
-     *                                        该噪声值大于 1.0 的被视为 1.0，小于 -1.0 的被视为 -1.0。
-     * @param fluidLevelSpreadNoise           影响某处含水层液体表面的高度。函数值越小液体表面越可能较低。
-     * @param lavaNoise                       影响某处含水层是否使用熔岩代替水。0.3为其阈值。
-     * @param temperature                     生物群系的温度噪声。此字段及以下五个字段为用于生物群系放置的噪声。
-     * @param vegetation                      即 humidity，生物群系的湿度噪声。
-     * @param continents                      生物群系的大陆性噪声。
-     * @param erosion                         生物群系的侵蚀噪声。
-     * @param depth                           生物群系的深度噪声。
-     * @param ridges                          即 weirdness，生物群系的奇异噪声。
-     * @param initialDensityWithoutJaggedness 与地表高度有关。在一 XZ 坐标下，
-     *                                        从世界顶部开始以 size_vertical*4 个方块的精度从上到下查找，
-     *                                        初次遇到大于 25/64 的值的高度作为世界生成的初始地表高度。
-     * @param finalDensity                    决定了一个坐标是空气（可以生成含水层）还是世界的默认方块 default_block（将会被 surface_rule 填充）。
-     * @param veinToggle                      控制矿脉生成。
-     * @param veinRidged                      控制矿脉生成。
-     * @param veinGap                         控制矿脉生成。
-     * @param surfaceRule                     为地形填充方块。
-     * @param seaLevel                        此维度的海平面高度。注意该值只影响世界生成。生物生成所使用的海平面高度目前为固定值63。
-     * @param disableMobGeneration            是否禁止普通动物随地形一起生成。
-     * @param aquifersEnabled                 是否生成含水层和含熔岩层。
-     * @param oreVeinsEnabled                 是否生成矿脉。
-     * @param useLegacyRandomSource           是否使用 1.18 之前的旧的随机数生成器来生成世界。
-     * @param spawnTarget                     用于决定玩家出生点的环境条件。会选取距离 (0,0) 不超过 2560 格的多个位置，
-     *                                        获取其噪声值（depth 噪声为 0，offset 为 0），
-     *                                        计算 ((x^2+z^2)^2) / 390625 + 噪声值距离列表中所有范围的最近的距离的平方，值最小的位置就是最佳位置。
-     *                                        玩家出生位置会在这个位置附近。
-     * @see <a href="https://minecraft.fandom.com/zh/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90#%E5%99%AA%E5%A3%B0%E8%AE%BE%E7%BD%AE">WIKI：自定义世界生成#噪声设置</a>
-     * @see <a href="https://minecraft.fandom.com/zh/wiki/%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0">WIKI：密度函数</a>
-     */
-    protected NoiseGeneratorSettings noiseGeneratorSettings(int minY, int height, int noiseSizeHorizontal, int noiseSizeVertical,
-                                                            BlockState defaultBlock, BlockState defaultFluid,
-                                                            DensityFunctionBuilder barrierNoise,
-                                                            DensityFunctionBuilder fluidLevelFloodednessNoise,
-                                                            DensityFunctionBuilder fluidLevelSpreadNoise,
-                                                            DensityFunctionBuilder lavaNoise,
-                                                            DensityFunctionBuilder temperature,
-                                                            DensityFunctionBuilder vegetation,
-                                                            DensityFunctionBuilder continents,
-                                                            DensityFunctionBuilder erosion,
-                                                            DensityFunctionBuilder depth,
-                                                            DensityFunctionBuilder ridges,
-                                                            DensityFunctionBuilder initialDensityWithoutJaggedness,
-                                                            DensityFunctionBuilder finalDensity,
-                                                            DensityFunctionBuilder veinToggle,
-                                                            DensityFunctionBuilder veinRidged,
-                                                            DensityFunctionBuilder veinGap,
-                                                            SurfaceRules.RuleSource surfaceRule, int seaLevel,
-                                                            boolean disableMobGeneration, boolean aquifersEnabled,
-                                                            boolean oreVeinsEnabled, boolean useLegacyRandomSource,
-                                                            List<Climate.ParameterPoint> spawnTarget) {
-        NoiseSettings noiseSettings = new NoiseSettings(minY, height, noiseSizeHorizontal, noiseSizeVertical);
-        NoiseRouter noiseRouter = new NoiseRouter(barrierNoise.function, fluidLevelFloodednessNoise.function,
-                fluidLevelSpreadNoise.function, lavaNoise.function, temperature.function, vegetation.function,
-                continents.function, erosion.function, depth.function, ridges.function,
-                initialDensityWithoutJaggedness.function, finalDensity.function, veinToggle.function,
-                veinRidged.function, veinGap.function);
+        NoiseSettings noiseSettings = NoiseSettings.create(minY, height, noiseSizeHorizontal, noiseSizeVertical);
         return new NoiseGeneratorSettings(noiseSettings, defaultBlock, defaultBlock, noiseRouter, surfaceRule,
                 spawnTarget, seaLevel, disableMobGeneration, aquifersEnabled, oreVeinsEnabled, useLegacyRandomSource);
     }
@@ -513,6 +549,100 @@ public abstract class WorldGenProviderBase implements DataProvider {
      */
     protected FlatLevelSource chunkGenerator(@Nullable HolderSet<StructureSet> structures) {
         return new FlatLevelSource(structureSets, new FlatLevelGeneratorSettings(Optional.ofNullable(structures), biomes));
+    }
+
+    /**
+     * @param barrierNoise                    影响是否使用方块分隔含水层和洞穴其他区域。函数值越大越有可能分隔。
+     * @param fluidLevelFloodednessNoise      影响含水层生成液体的的概率。函数值越大越有可能生成。
+     *                                        该噪声值大于 1.0 的被视为 1.0，小于 -1.0 的被视为 -1.0。
+     * @param fluidLevelSpreadNoise           影响某处含水层液体表面的高度。函数值越小液体表面越可能较低。
+     * @param lavaNoise                       影响某处含水层是否使用熔岩代替水。0.3为其阈值。
+     * @param temperature                     生物群系的温度噪声。此字段及以下五个字段为用于生物群系放置的噪声。
+     * @param vegetation                      即 humidity，生物群系的湿度噪声。
+     * @param continents                      生物群系的大陆性噪声。
+     * @param erosion                         生物群系的侵蚀噪声。
+     * @param depth                           生物群系的深度噪声。
+     * @param ridges                          即 weirdness，生物群系的奇异噪声。
+     * @param initialDensityWithoutJaggedness 与地表高度有关。在一 XZ 坐标下，
+     *                                        从世界顶部开始以 size_vertical*4 个方块的精度从上到下查找，
+     *                                        初次遇到大于 25/64 的值的高度作为世界生成的初始地表高度。
+     * @param finalDensity                    决定了一个坐标是空气（可以生成含水层）还是世界的默认方块 default_block（将会被 surface_rule 填充）。
+     * @param veinToggle                      控制矿脉生成。
+     * @param veinRidged                      控制矿脉生成。
+     * @param veinGap                         控制矿脉生成。
+     * @see <a href="https://minecraft.fandom.com/zh/wiki/%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0">WIKI：密度函数</a>
+     */
+    protected NoiseRouter router(DensityFunctionBuilder barrierNoise,
+                                 DensityFunctionBuilder fluidLevelFloodednessNoise,
+                                 DensityFunctionBuilder fluidLevelSpreadNoise,
+                                 DensityFunctionBuilder lavaNoise,
+                                 DensityFunctionBuilder temperature,
+                                 DensityFunctionBuilder vegetation,
+                                 DensityFunctionBuilder continents,
+                                 DensityFunctionBuilder erosion,
+                                 DensityFunctionBuilder depth,
+                                 DensityFunctionBuilder ridges,
+                                 DensityFunctionBuilder initialDensityWithoutJaggedness,
+                                 DensityFunctionBuilder finalDensity,
+                                 DensityFunctionBuilder veinToggle,
+                                 DensityFunctionBuilder veinRidged,
+                                 DensityFunctionBuilder veinGap) {
+        return new NoiseRouter(barrierNoise.function,
+                fluidLevelFloodednessNoise.function,
+                fluidLevelSpreadNoise.function,
+                lavaNoise.function,
+                temperature.function,
+                vegetation.function,
+                continents.function,
+                erosion.function,
+                depth.function,
+                ridges.function,
+                initialDensityWithoutJaggedness.function,
+                finalDensity.function,
+                veinToggle.function,
+                veinRidged.function,
+                veinGap.function);
+    }
+
+    /**
+     * @param barrierNoise                    影响是否使用方块分隔含水层和洞穴其他区域。函数值越大越有可能分隔。
+     * @param fluidLevelFloodednessNoise      影响含水层生成液体的的概率。函数值越大越有可能生成。
+     *                                        该噪声值大于 1.0 的被视为 1.0，小于 -1.0 的被视为 -1.0。
+     * @param fluidLevelSpreadNoise           影响某处含水层液体表面的高度。函数值越小液体表面越可能较低。
+     * @param lavaNoise                       影响某处含水层是否使用熔岩代替水。0.3为其阈值。
+     * @param temperature                     生物群系的温度噪声。此字段及以下五个字段为用于生物群系放置的噪声。
+     * @param vegetation                      即 humidity，生物群系的湿度噪声。
+     * @param continents                      生物群系的大陆性噪声。
+     * @param erosion                         生物群系的侵蚀噪声。
+     * @param depth                           生物群系的深度噪声。
+     * @param ridges                          即 weirdness，生物群系的奇异噪声。
+     * @param initialDensityWithoutJaggedness 与地表高度有关。在一 XZ 坐标下，
+     *                                        从世界顶部开始以 size_vertical*4 个方块的精度从上到下查找，
+     *                                        初次遇到大于 25/64 的值的高度作为世界生成的初始地表高度。
+     * @param finalDensity                    决定了一个坐标是空气（可以生成含水层）还是世界的默认方块 default_block（将会被 surface_rule 填充）。
+     * @param veinToggle                      控制矿脉生成。
+     * @param veinRidged                      控制矿脉生成。
+     * @param veinGap                         控制矿脉生成。
+     * @see <a href="https://minecraft.fandom.com/zh/wiki/%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0">WIKI：密度函数</a>
+     */
+    protected NoiseRouter router(DensityFunction barrierNoise,
+                                 DensityFunction fluidLevelFloodednessNoise,
+                                 DensityFunction fluidLevelSpreadNoise,
+                                 DensityFunction lavaNoise,
+                                 DensityFunction temperature,
+                                 DensityFunction vegetation,
+                                 DensityFunction continents,
+                                 DensityFunction erosion,
+                                 DensityFunction depth,
+                                 DensityFunction ridges,
+                                 DensityFunction initialDensityWithoutJaggedness,
+                                 DensityFunction finalDensity,
+                                 DensityFunction veinToggle,
+                                 DensityFunction veinRidged,
+                                 DensityFunction veinGap) {
+        return new NoiseRouter(barrierNoise, fluidLevelFloodednessNoise, fluidLevelSpreadNoise, lavaNoise, temperature,
+                vegetation, continents, erosion, depth, ridges, initialDensityWithoutJaggedness,
+                finalDensity, veinToggle, veinRidged, veinGap);
     }
 
     // =================================================================================================================
@@ -615,6 +745,10 @@ public abstract class WorldGenProviderBase implements DataProvider {
 
     protected DensityFunctionBuilder density(ResourceLocation function) {
         return new DensityFunctionBuilder(getDensityFunction(function).get());
+    }
+
+    protected DensityFunctionBuilder density(DensityFunction function) {
+        return new DensityFunctionBuilder(function);
     }
 
     /**
@@ -925,12 +1059,11 @@ public abstract class WorldGenProviderBase implements DataProvider {
             return map(f -> DensityFunctions.lerp(min.function, f, max.function));
         }
 
-        public DensityFunctionBuilder lerp(double d, DensityFunctionBuilder arg2) {
-            return new DensityFunctionBuilder(DensityFunctions.lerp(function, d, arg2.function));
-        }
-
-        public DensityFunctionBuilder lerp(DensityFunctionBuilder arg, double d) {
-            return new DensityFunctionBuilder(DensityFunctions.lerp(arg.function, d, function));
+        /**
+         * 返回 (this[base] - keep) * scale + keep
+         */
+        public DensityFunctionBuilder lerp(DensityFunctionBuilder scale, double keep) {
+            return new DensityFunctionBuilder(DensityFunctions.lerp(scale.function, keep, function));
         }
     }
 
@@ -996,7 +1129,7 @@ public abstract class WorldGenProviderBase implements DataProvider {
      */
     public static class ParameterPointBuilder {
 
-        final Climate.Parameter[] values = new Climate.Parameter[] {
+        final Climate.Parameter[] values = new Climate.Parameter[]{
                 Climate.Parameter.span(-1f, 1f),
                 Climate.Parameter.span(-1f, 1f),
                 Climate.Parameter.span(-0.11f, 1f),
