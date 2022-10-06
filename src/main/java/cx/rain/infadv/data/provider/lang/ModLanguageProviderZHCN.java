@@ -2,6 +2,7 @@ package cx.rain.infadv.data.provider.lang;
 
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.data.provider.base.LanguageProviderBase;
+import cx.rain.infadv.effect.ModEffects;
 import cx.rain.infadv.item.ModItems;
 import cx.rain.infadv.item.ModTabs;
 import net.minecraft.data.DataGenerator;
@@ -21,6 +22,9 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addCreativeTab(ModTabs.FOODS, "无尽冒险 | 食物");
         addCreativeTab(ModTabs.MISC, "无尽冒险 | 杂项");
         addCreativeTab(ModTabs.ORES, "无尽冒险 | 矿石");
+
+        addEffect(ModEffects.DWARF_EYE, "矮人之眼");
+        addEffect(ModEffects.SCORPION_POISON, "蝎毒");
 
         addBlock(ModBlocks.SILVER_ORE, "银矿石");
         addBlock(ModBlocks.MITHRIL_ORE, "秘银矿石");
@@ -60,29 +64,29 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.AQUAMARINE, "海蓝宝石");
         addItem(ModItems.RAW_SILVER, "粗银");
         addItem(ModItems.MICA, "云母");
-        addItem(ModItems.DWARF_MALT_LIQUOR, "矮人麦芽酒");
-        addItem(ModItems.MALT_LIQUOR_CHOCOLATE, "麦芽酒巧克力");
         addItem(ModItems.EMERALD_SUNRISE, "绿宝石日出");
-        addItem(ModItems.EMERALD_CHOCOLATE, "绿宝石巧克力");
-        addItem(ModItems.GOLDEN_SCORPION_MEDICATED_LIQUOR, "金蝎药酒");
-        addItem(ModItems.GOLDEN_SCORPION_CHOCOLATE, "金蝎巧克力");
+        addItem(ModItems.DWARF_MALT_LIQUOR, "矮人麦芽酒");
+        addItem(ModItems.GOLDEN_SCORPION, "金蝎药酒");
         addItem(ModItems.RUM, "朗姆酒");
-        addItem(ModItems.RUM_CHOCOLATE, "朗姆酒巧克力");
         addItem(ModItems.VODKA, "伏特加");
-        addItem(ModItems.VODKA_CHOCOLATE, "伏特加巧克力");
         addItem(ModItems.WINE, "葡萄酒");
-        addItem(ModItems.WINE_CHOCOLATE, "葡萄酒巧克力");
         addItem(ModItems.AMBROSIA, "仙馔密酒");
+        addItem(ModItems.MALT_LIQUOR_CHOCOLATE, "麦芽巧克力");
+        addItem(ModItems.EMERALD_CHOCOLATE, "绿宝石巧克力");
+        addItem(ModItems.RUM_CHOCOLATE, "朗姆酒巧克力");
+        addItem(ModItems.VODKA_CHOCOLATE, "伏特加巧克力");
+        addItem(ModItems.WINE_CHOCOLATE, "葡萄酒巧克力");
+        addItem(ModItems.GOLDEN_SCORPION_CHOCOLATE, "金蝎巧克力");
         addItem(ModItems.WINE_GLASS, "酒杯");
         addItem(ModItems.DREAM_PILLOW, "织梦之枕");
-        addItem(ModItems.TEETH_OF_EMPRESS, "女皇之牙");
+        addItem(ModItems.QUEEN_FANG, "女皇之牙");
         addItem(ModItems.SOUL_FLUTE, "灵魂笛哨");
         addItem(ModItems.SOUL_SALT, "灵魂盐");
         addItem(ModItems.TARANTULA_EGG, "狼蛛卵");
         addItem(ModItems.COPPER_COIN, "铜币");
         addItem(ModItems.SILVER_COIN, "银币");
         addItem(ModItems.GOLD_COIN, "金币");
-        addItem(ModItems.JADE_COIN, "翡玉币");
+        addItem(ModItems.EMERALD_COIN, "翡玉币");
         addItem(ModItems.DIAMONDS_GOLD_COIN, "镶钻金币");
         addItem(ModItems.SILVER_SWORD, "银剑");
         addItem(ModItems.SILVER_AXE, "银斧");
