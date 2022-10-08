@@ -49,8 +49,8 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addBlock(ModBlocks.SKY_PLANKS, "天境树木板");
         addBlock(ModBlocks.SKY_LEAVES, "天境树叶");
         addBlock(ModBlocks.SKY_STONE, "天境岩");
-        addBlock(ModBlocks.HEAVEN_ROCK, "天使城堡石");
-        addBlock(ModBlocks.HEAVEN_BRICKS, "天使城堡砖");
+        addBlock(ModBlocks.HEAVEN_ROCK, "天堂基石");
+        addBlock(ModBlocks.HEAVEN_BRICKS, "天堂砖块");
         addBlock(ModBlocks.MICA_ORE, "云母矿石");
         addBlock(ModBlocks.SILVER_BLOCK, "银块");
         addBlock(ModBlocks.MITHRIL_BLOCK, "秘银块");
@@ -64,6 +64,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.AQUAMARINE, "海蓝宝石");
         addItem(ModItems.RAW_SILVER, "粗银");
         addItem(ModItems.MICA, "云母");
+
         addItem(ModItems.EMERALD_SUNRISE, "绿宝石日出");
         addItem(ModItems.DWARF_MALT_LIQUOR, "矮人麦芽酒");
         addItem(ModItems.GOLDEN_SCORPION, "金蝎药酒");
@@ -88,6 +89,9 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.GOLD_COIN, "金币");
         addItem(ModItems.EMERALD_COIN, "翡玉币");
         addItem(ModItems.DIAMONDS_GOLD_COIN, "镶钻金币");
+=======
+        addItem(ModItems.DREAM_PILLOW, "织梦之枕");
+
         addItem(ModItems.SILVER_SWORD, "银剑");
         addItem(ModItems.SILVER_AXE, "银斧");
         addItem(ModItems.SILVER_PICKAXE, "银镐");
@@ -109,5 +113,33 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.MITHRIL_HOE, "秘银锄");
 
         addItem(ModItems.DWARF_SPAWN_EGG, "矮人刷怪蛋");
+        addItem(ModItems.DWARF_COPPER_COIN, "铜硬币");
+        addItem(ModItems.DWARF_SILVER_COIN, "银硬币");
+        addItem(ModItems.DWARF_GOLDEN_COIN, "金硬币");
+        addItem(ModItems.DWARF_DIAMOND_COIN, "钻石硬币");
+        addItem(ModItems.DWARF_EMERALD_COIN, "绿宝石硬币");
+        addItem(ModItems.MICA_SWORD, "云母剑");
+        addItem(ModItems.MICA_AXE, "云母斧");
+        addItem(ModItems.MICA_PICKAXE, "云母镐");
+        addItem(ModItems.MICA_SHOVEL, "云母锹");
+        addItem(ModItems.MICA_HOE, "云母锄");
+
+        addItem(ModItems.CUP, "酒杯");
+        addItem(ModItems.CUP_AMBROSIA, "仙馔蜜酒");
+        addItem(ModItems.CUP_DWARF_MALT, "矮人麦芽酒");
+        addItem(ModItems.CUP_EMERALD_SUNRISE, "绿宝石日出鸡尾酒");
+        addItem(ModItems.CUP_GOLDEN_SCORPION, "金蝎药酒");
+        addItem(ModItems.CUP_RUM, "朗姆酒");
+        addItem(ModItems.CUP_VODKA, "伏特加");
+        addItem(ModItems.CUP_WINE, "葡萄酒");
+        addItem(ModItems.WINE_CHOCOLATE_DWARF_MALT, "麦芽酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_EMERALD_SUNRISE, "金蝎酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_GOLDEN_SCORPION, "绿宝石酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_RUM, "朗姆酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_VODKA, "伏特加酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE, "葡萄酒心巧克力");
+        addItem(ModItems.SOUL_SALT, "灵魂盐");
+        addItem(ModItems.SOUL_WHISTLE, "灵魂笛哨");
+        addItem(ModItems.TARANTULA_EGG, "狼蛛卵");
     }
 }

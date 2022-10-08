@@ -12,4 +12,11 @@ public abstract class LanguageProviderBase extends LanguageProvider {
     public void addCreativeTab(CreativeModeTab tab, String value) {
         this.add("itemGroup." + tab.langId, value);
     }
+
+    @Override
+    public void add(String key, String value) {
+        try {
+            super.add(key, value);
+        } catch (IllegalStateException ignored) {}
+    }
 }

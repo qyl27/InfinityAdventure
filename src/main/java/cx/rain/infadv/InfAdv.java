@@ -6,10 +6,13 @@ import cx.rain.infadv.effect.ModEffects;
 import cx.rain.infadv.entity.ModEntities;
 import cx.rain.infadv.handler.MobHasEffectHandler;
 import cx.rain.infadv.item.ModItems;
-import cx.rain.infadv.world.gen.ModConfiguredFeatures;
-import cx.rain.infadv.world.gen.ModPlacedFeatures;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import cx.rain.infadv.world.gen.level.ModLevels;
+import cx.rain.infadv.world.feature.ModConfiguredFeatures;
+import cx.rain.infadv.world.feature.ModPlacedFeatures;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -45,6 +48,7 @@ public class InfAdv {
 
         ModConfiguredFeatures.register(bus);
         ModPlacedFeatures.register(bus);
+        ModLevels.REGISTRY.register(bus);
 
         MinecraftForge.EVENT_BUS.register(new MobHasEffectHandler());
         logger.info("Fresh beginning.");

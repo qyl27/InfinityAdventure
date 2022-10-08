@@ -1,5 +1,6 @@
 package cx.rain.infadv.data.provider.base;
 
+import cx.rain.infadv.data.provider.base.warn.WarnItemModelProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -21,12 +22,14 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public abstract class ItemModelProviderBase extends ItemModelProvider {
+public abstract class ItemModelProviderBase extends WarnItemModelProvider {
     public static final ResourceLocation GENERATED = new ResourceLocation("item/generated");
     public static final ResourceLocation HANDHELD = new ResourceLocation("item/handheld");
 
     protected DeferredRegister<Item> deferredRegister = null;
     protected Set<Item> skipped = new HashSet<>();
+    protected Set<String> skippedPath = new HashSet<>();
+    protected boolean manually = false;
 
     public ItemModelProviderBase(DataGenerator generator, String modid,
                                  ExistingFileHelper existingFileHelper, DeferredRegister<Item> registry) {
@@ -39,9 +42,19 @@ public abstract class ItemModelProviderBase extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        manually = true;
         registerItemModels();
+        manually = false;
 
         doRegisterModels();
+    }
+
+    @Override
+    public ItemModelBuilder getBuilder(String path) {
+        if (manually) {
+            skippedPath.add(path);
+        }
+        return super.getBuilder(path);
     }
 
     protected void skipItems(Item... items) {
@@ -69,10 +82,7 @@ public abstract class ItemModelProviderBase extends ItemModelProvider {
     }
 
     protected static ResourceLocation itemResource(Item item) {
-        var namespace = ForgeRegistries.ITEMS.getKey(item).getNamespace();
-        var path = ForgeRegistries.ITEMS.getKey(item).getPath();
-
-        return new ResourceLocation(namespace, path);
+        return ForgeRegistries.ITEMS.getKey(item);
     }
 
     protected final ItemModelBuilder spawnEgg(Item item) {
@@ -99,6 +109,7 @@ public abstract class ItemModelProviderBase extends ItemModelProvider {
         return deferredRegister.getEntries()
                 .stream()
                 .map(RegistryObject::get)
+                .filter(i -> !skippedPath.contains(itemResource(i).getPath()))
                 .collect(Collectors.toSet());
     }
 

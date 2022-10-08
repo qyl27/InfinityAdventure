@@ -47,7 +47,7 @@ public class DwarfEntity extends PathfinderMob implements IAnimatable {
         }
 
         // Todo: qyl27: attack animations.
-//        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dwarf.idle", ILoopType.EDefaultLoopTypes.LOOP));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dwarf.idle", ILoopType.EDefaultLoopTypes.LOOP));
         return PlayState.CONTINUE;
     }
 

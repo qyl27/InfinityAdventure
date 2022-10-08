@@ -14,15 +14,13 @@ group = 'cx.rain.infadv' // http://maven.apache.org/guides/mini/guide-naming-con
 archivesBaseName = 'infadv'
 
 version = '1.19.2-1.0.0'
-if (System.getenv("CI") == "true") {
+if (System.getenv("CI") == "true" && System.getenv("CIRCLE_BRANCH") != null) {
     version += "-${System.getenv("CIRCLE_BRANCH")}"
     version += "-${System.getenv("CIRCLE_SHA1").substring(0, 7)}"
     version += "-${System.getenv("CIRCLE_BUILD_NUM")}"
-
     if (System.getenv("CIRCLE_PR_USERNAME") != null) {
         version += "-pr-${System.getenv("CIRCLE_PR_USERNAME")}"
     }
-
     if (System.getenv("CIRCLE_PR_NUMBER") != null) {
         version += "-#${System.getenv("CIRCLE_PR_NUMBER")}"
     }
@@ -149,11 +147,18 @@ tasks.withType(JavaCompile).configureEach {
 import org.apache.tools.ant.filters.ReplaceTokens
 
 task injectString(type: Copy) {
+    var path = "${buildDir}/generated/java";
+    var dir = new File(path);
+
+    if (dir.exists()) {
+        dir.deleteDir();
+    }
+
     from ('src/main/java') {
         include '**/*.java'
         filter(ReplaceTokens, tokens: [version: project.version])
     }
-    into "${buildDir}/generated/java"
+    into path
 }
 compileJava.source = "${buildDir}/generated/java"
 compileJava.dependsOn injectString

@@ -1,4 +1,4 @@
-// 1.19.2	2022-10-02T14:30:17.0028073	Item Models: infadv
+// 1.19.2	2022-10-08T08:23:40.0337868	ItemModels: infadv
 7d3bb4c65e191b9ad919a29f5c1189aee18a7195 assets/infadv/models/item/adamantine_ore.json
 a7b25a6c96218bd1bb137e2b34450f6dbcd5d32e assets/infadv/models/item/ancient_dwarf_bricks.json
 49989dae1ac6377e641767ceafccb0205ce42d60 assets/infadv/models/item/ancient_dwarf_crate.json
@@ -9,7 +9,7 @@ e692e8cd7d580e701655a7f090ef189b815f3e51 assets/infadv/models/item/black_cloud.j
 e50e0963856f21ba6a6f860a331e9dda5131ddff assets/infadv/models/item/deepslate_adamantine_ore.json
 7f98abe825ee235898767f965d235b09a4bc8f58 assets/infadv/models/item/deepslate_mithril_ore.json
 7152d68953540ba9dcd8c38c720d8aaaaf4ce9ab assets/infadv/models/item/dwarf_bricks.json
-ab88d98f67fa9ee34d97de81e23d59c0da5c925e assets/infadv/models/item/dwarf_furnace.json
+05837cbbfc23e9e832d27765b5caea4fa5875e15 assets/infadv/models/item/dwarf_furnace.json
 2e18cf5b391b8b7423f66742431dfcd494a4eff6 assets/infadv/models/item/dwarf_pillar_bricks.json
 12a1b120192f357e3b9c58fabdb547931a8ae6d4 assets/infadv/models/item/heaven_bricks.json
 07da223c903f854efc2436fdadf624de6be3b6f0 assets/infadv/models/item/heaven_rock.json

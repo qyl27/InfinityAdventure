@@ -83,4 +83,37 @@ public class ModItems {
 
     public static final RegistryObject<ForgeSpawnEggItem> DWARF_SPAWN_EGG = ITEMS.register("dwarf_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.DWARF, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
 
+
 }
+=======
+    public static final RegistryObject<Item> DWARF_COPPER_COIN = ITEMS.register("dwarf_copper_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> DWARF_SILVER_COIN = ITEMS.register("dwarf_silver_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> DWARF_GOLDEN_COIN = ITEMS.register("dwarf_golden_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> DWARF_DIAMOND_COIN = ITEMS.register("dwarf_diamond_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> DWARF_EMERALD_COIN = ITEMS.register("dwarf_emerald_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<SwordItem> MICA_SWORD = ITEMS.register("mica_sword", () -> new SwordItem(ModToolTiers.MICA, 3, -2.4F, new Item.Properties().tab(ModTabs.BATTLING)));
+    public static final RegistryObject<AxeItem> MICA_AXE = ITEMS.register("mica_axe", () -> new AxeItem(ModToolTiers.MICA, 6, -3.1f, new Item.Properties().tab(ModTabs.TOOLS)));
+    public static final RegistryObject<PickaxeItem> MICA_PICKAXE = ITEMS.register("mica_pickaxe", () -> new PickaxeItem(ModToolTiers.MICA, 1, -2.8F, new Item.Properties().tab(ModTabs.TOOLS)));
+    public static final RegistryObject<ShovelItem> MICA_SHOVEL = ITEMS.register("mica_shovel", () -> new ShovelItem(ModToolTiers.MICA, 1.5F, -3, new Item.Properties().tab(ModTabs.TOOLS)));
+    public static final RegistryObject<HoeItem> MICA_HOE = ITEMS.register("mica_hoe", () -> new HoeItem(ModToolTiers.MICA, -2, -1, new Item.Properties().tab(ModTabs.TOOLS)));
+
+    // Todo: wine below.
+    public static final RegistryObject<Item> CUP = ITEMS.register("cup", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> CUP_AMBROSIA = ITEMS.register("cup_ambrosia", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> CUP_DWARF_MALT = ITEMS.register("cup_dwarf_malt", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> CUP_EMERALD_SUNRISE = ITEMS.register("cup_emerald_sunrise", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> CUP_GOLDEN_SCORPION = ITEMS.register("cup_golden_scorpion", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> CUP_RUM = ITEMS.register("cup_rum", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> CUP_VODKA = ITEMS.register("cup_vodka", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> CUP_WINE = ITEMS.register("cup_wine", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> WINE_CHOCOLATE_DWARF_MALT = ITEMS.register("wine_chocolate_dwarf_malt", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> WINE_CHOCOLATE_EMERALD_SUNRISE = ITEMS.register("wine_chocolate_emerald_sunrise", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> WINE_CHOCOLATE_GOLDEN_SCORPION = ITEMS.register("wine_chocolate_golden_scorpion", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> WINE_CHOCOLATE_RUM = ITEMS.register("wine_chocolate_rum", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> WINE_CHOCOLATE_VODKA = ITEMS.register("wine_chocolate_vodka", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> WINE_CHOCOLATE = ITEMS.register("wine_chocolate", () -> new Item(new Item.Properties().tab(ModTabs.FOODS)));
+    public static final RegistryObject<Item> SOUL_SALT = ITEMS.register("soul_salt", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
+    public static final RegistryObject<Item> SOUL_WHISTLE = ITEMS.register("soul_whistle", () -> new Item(new Item.Properties().tab(ModTabs.TOOLS)));   // Todo: function.
+    public static final RegistryObject<Item> TARANTULA_EGG = ITEMS.register("tarantula_egg", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));  // Todo: function.
+}
+

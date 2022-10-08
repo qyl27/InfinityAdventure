@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
 
 public class ModItemModelProvider extends ItemModelProviderBase {
-    private boolean wereBlockItems;
+    private final boolean wereBlockItems;
 
     public ModItemModelProvider(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper, DeferredRegister<Item> registry) {
         this(generator, modid, existingFileHelper, registry, false);
@@ -18,14 +18,11 @@ public class ModItemModelProvider extends ItemModelProviderBase {
 
     public ModItemModelProvider(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper, DeferredRegister<Item> registry, boolean areBlockItems) {
         super(generator, modid, existingFileHelper, registry);
-
         wereBlockItems = areBlockItems;
     }
 
     @Override
     protected void registerItemModels() {
-        skipItems(ModBlockItems.DWARF_FURNACE.get());
-
         getBuilder(name(ModBlockItems.DWARF_FURNACE.get())).parent(new ModelFile.UncheckedModelFile(modLoc("block/dwarf_furnace_off")));
     }
 

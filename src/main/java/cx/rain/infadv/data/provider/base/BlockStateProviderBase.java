@@ -1,13 +1,13 @@
 package cx.rain.infadv.data.provider.base;
 
-import cx.rain.infadv.block.base.FacingBlockBase;
 import cx.rain.infadv.block.base.FurnaceBlockBase;
+import cx.rain.infadv.data.provider.base.warn.WarnBlockStateProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
@@ -20,9 +20,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public abstract class BlockStateProviderBase extends BlockStateProvider {
-    protected DeferredRegister<Block> deferredRegister = null;
+public abstract class BlockStateProviderBase extends WarnBlockStateProvider {
+    protected DeferredRegister<Block> deferredRegister;
     protected Set<Block> skipped = new HashSet<>();
+    protected boolean manually = false;
 
     public BlockStateProviderBase(DataGenerator generator, String modid,
                                   ExistingFileHelper existingFileHelper, DeferredRegister<Block> registry) {
@@ -35,9 +36,28 @@ public abstract class BlockStateProviderBase extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        manually = true;
         registerStates();
+        manually = false;
 
         doRegisterBlockStates();
+    }
+
+    @Override
+    public MultiPartBlockStateBuilder getMultipartBuilder(Block block) {
+        if (manually) {
+            skipBlocks(block);
+        }
+
+        return super.getMultipartBuilder(block);
+    }
+
+    @Override
+    public VariantBlockStateBuilder getVariantBuilder(Block block) {
+        if (manually) {
+            skipBlocks(block);
+        }
+        return super.getVariantBuilder(block);
     }
 
     protected void skipBlocks(Block... blocks) {
