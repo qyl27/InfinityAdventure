@@ -1,4 +1,4 @@
-package cx.rain.infadv.world.feature;
+package cx.rain.infadv.world.feature.builder;
 
 import cx.rain.infadv.util.Self;
 import net.minecraft.core.Holder;

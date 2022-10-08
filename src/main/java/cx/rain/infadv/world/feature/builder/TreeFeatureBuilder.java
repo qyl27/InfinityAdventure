@@ -1,4 +1,4 @@
-package cx.rain.infadv.world.feature;
+package cx.rain.infadv.world.feature.builder;
 
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;

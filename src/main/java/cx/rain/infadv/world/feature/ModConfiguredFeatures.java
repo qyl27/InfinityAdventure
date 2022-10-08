@@ -1,4 +1,4 @@
-package cx.rain.infadv.world.gen;
+package cx.rain.infadv.world.feature;
 
 import com.google.common.base.Suppliers;
 import cx.rain.infadv.InfAdv;

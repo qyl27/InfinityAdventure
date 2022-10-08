@@ -1,4 +1,4 @@
-package cx.rain.infadv.world.gen;
+package cx.rain.infadv.world.feature;
 
 import cx.rain.infadv.InfAdv;
 import net.minecraft.core.Registry;

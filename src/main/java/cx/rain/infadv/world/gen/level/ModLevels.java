@@ -1,6 +1,7 @@
-package cx.rain.infadv.world;
+package cx.rain.infadv.world.gen.level;
 
 import cx.rain.infadv.InfAdv;
+import cx.rain.infadv.world.ModFeatures;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -17,10 +18,10 @@ public class ModLevels {
 
     public static final DeferredRegister<Biome> REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, InfAdv.MODID);
 
-    public static final ResourceKey<Level> ETHER = dim("ether");
-    public static final ResourceKey<Level> ETHER2 = dim("ether2");
+    public static final ResourceKey<Level> SKYLAND = dim("skyland");
+    public static final ResourceKey<Level> SKYLAND_2 = dim("skyland2");
 
-    public static final RegistryObject<Biome> ETHER_BIOME = REGISTRY.register("ether", () -> new Biome.BiomeBuilder()
+    public static final RegistryObject<Biome> SKYLAND_BIOME = REGISTRY.register("skyland", () -> new Biome.BiomeBuilder()
             .downfall(0.4f)
             .temperature(0.8f)
             .mobSpawnSettings(MobSpawnSettings.EMPTY)

@@ -1,4 +1,4 @@
-package cx.rain.infadv.world.feature;
+package cx.rain.infadv.world.feature.builder;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
