@@ -1,4 +1,4 @@
-package cx.rain.infadv.data.provider.base;
+package cx.rain.infadv.data.provider.base.warn;
 
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;

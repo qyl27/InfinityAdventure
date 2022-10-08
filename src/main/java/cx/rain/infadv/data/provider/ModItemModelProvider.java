@@ -1,7 +1,7 @@
 package cx.rain.infadv.data.provider;
 
 import cx.rain.infadv.block.ModBlockItems;
-import cx.rain.infadv.data.provider.base.ItemModelProviderBase2;
+import cx.rain.infadv.data.provider.base.ItemModelProviderBase;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -9,7 +9,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
 
-public class ModItemModelProvider extends ItemModelProviderBase2 {
+public class ModItemModelProvider extends ItemModelProviderBase {
     private final boolean wereBlockItems;
 
     public ModItemModelProvider(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper, DeferredRegister<Item> registry) {

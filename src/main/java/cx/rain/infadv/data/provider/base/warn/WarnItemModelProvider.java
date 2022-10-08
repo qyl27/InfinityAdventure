@@ -1,4 +1,4 @@
-package cx.rain.infadv.data.provider.base;
+package cx.rain.infadv.data.provider.base.warn;
 
 import com.google.common.base.Preconditions;
 import com.mojang.datafixers.util.Pair;
