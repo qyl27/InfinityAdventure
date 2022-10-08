@@ -7,7 +7,6 @@ import cx.rain.infadv.data.provider.*;
 import cx.rain.infadv.data.provider.lang.ModLanguageProviderENUS;
 import cx.rain.infadv.data.provider.lang.ModLanguageProviderZHCN;
 import cx.rain.infadv.item.ModItems;
-import cx.rain.infadv.unrealized.UnrealizedProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,8 +34,6 @@ public class DataGen {
             generator.addProvider(true, new ModBiomeModifierProvider(generator, InfAdv.MODID));
 //            generator.addProvider(true, new ModLevelProvider(generator));
         }
-
-        generator.addProvider(true, new UnrealizedProvider(generator, exHelper));
 
         if (event.includeReports()) {
 

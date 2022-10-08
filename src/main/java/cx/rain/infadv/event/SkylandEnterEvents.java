@@ -1,6 +1,6 @@
-package cx.rain.infadv.handler;
+package cx.rain.infadv.event;
 
-import cx.rain.infadv.unrealized.UnrealizedElements;
+import cx.rain.infadv.InfAdv;
 import cx.rain.infadv.util.Levels;
 import cx.rain.infadv.world.gen.level.ModLevels;
 import net.minecraft.core.BlockPos;
@@ -13,17 +13,15 @@ import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber
-public class CommonEventHandler {
+@Mod.EventBusSubscriber(modid = InfAdv.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+public class SkylandEnterEvents {
 
     @SubscribeEvent
     public static void onSleep(PlayerSleepInBedEvent event) {
         BlockPos pos = event.getPos();
         Player player = event.getEntity();
         Level level = player.getLevel();
-        if (level.getBlockState(pos).is(UnrealizedElements.dreamBed()) && Levels.to(player, ModLevels.SKYLAND)) {
-            event.setResult(Player.BedSleepingProblem.OTHER_PROBLEM);
-        }
+        // Todo: qyl27: dream pillow, and enter by chance.
     }
 
     @SubscribeEvent
