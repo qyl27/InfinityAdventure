@@ -2,6 +2,7 @@ package cx.rain.infadv.data.provider.lang;
 
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.data.provider.base.LanguageProviderBase;
+import cx.rain.infadv.effect.ModEffects;
 import cx.rain.infadv.item.ModItems;
 import cx.rain.infadv.item.ModTabs;
 import net.minecraft.data.DataGenerator;
@@ -15,12 +16,15 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
     protected void addTranslations() {
         addCreativeTab(ModTabs.BUILDING_BLOCKS, "无尽冒险 | 建筑方块");
         addCreativeTab(ModTabs.FUNCTIONAL_BLOCKS, "无尽冒险 | 功能性方块");
-        addCreativeTab(ModTabs.ORES, "无尽冒险 | 矿石");
         addCreativeTab(ModTabs.FUNCTIONAL_ITEMS, "无尽冒险 | 功能性物品");
         addCreativeTab(ModTabs.BATTLING, "无尽冒险 | 战斗用品");
         addCreativeTab(ModTabs.TOOLS, "无尽冒险 | 工具");
         addCreativeTab(ModTabs.FOODS, "无尽冒险 | 食物");
         addCreativeTab(ModTabs.MISC, "无尽冒险 | 杂项");
+        addCreativeTab(ModTabs.ORES, "无尽冒险 | 矿石");
+
+        addEffect(ModEffects.DWARF_EYE, "矮人之眼");
+        addEffect(ModEffects.SCORPION_POISON, "蝎毒");
 
         addBlock(ModBlocks.SILVER_ORE, "银矿石");
         addBlock(ModBlocks.MITHRIL_ORE, "秘银矿石");
@@ -60,12 +64,44 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.AQUAMARINE, "海蓝宝石");
         addItem(ModItems.RAW_SILVER, "粗银");
         addItem(ModItems.MICA, "云母");
+
+        addItem(ModItems.EMERALD_SUNRISE, "绿宝石日出");
+        addItem(ModItems.DWARF_MALT_LIQUOR, "矮人麦芽酒");
+        addItem(ModItems.GOLDEN_SCORPION, "金蝎药酒");
+        addItem(ModItems.RUM, "朗姆酒");
+        addItem(ModItems.VODKA, "伏特加");
+        addItem(ModItems.WINE, "葡萄酒");
+        addItem(ModItems.AMBROSIA, "仙馔密酒");
+        addItem(ModItems.MALT_LIQUOR_CHOCOLATE, "麦芽巧克力");
+        addItem(ModItems.EMERALD_CHOCOLATE, "绿宝石巧克力");
+        addItem(ModItems.RUM_CHOCOLATE, "朗姆酒巧克力");
+        addItem(ModItems.VODKA_CHOCOLATE, "伏特加巧克力");
+        addItem(ModItems.WINE_CHOCOLATE, "葡萄酒巧克力");
+        addItem(ModItems.GOLDEN_SCORPION_CHOCOLATE, "金蝎巧克力");
+        addItem(ModItems.WINE_GLASS, "酒杯");
         addItem(ModItems.DREAM_PILLOW, "织梦之枕");
+        addItem(ModItems.QUEEN_FANG, "女皇之牙");
+        addItem(ModItems.SOUL_FLUTE, "灵魂笛哨");
+        addItem(ModItems.SOUL_SALT, "灵魂盐");
+        addItem(ModItems.TARANTULA_EGG, "狼蛛卵");
+        addItem(ModItems.COPPER_COIN, "铜币");
+        addItem(ModItems.SILVER_COIN, "银币");
+        addItem(ModItems.GOLD_COIN, "金币");
+        addItem(ModItems.EMERALD_COIN, "翡玉币");
+        addItem(ModItems.DIAMONDS_GOLD_COIN, "镶钻金币");
+=======
+        addItem(ModItems.DREAM_PILLOW, "织梦之枕");
+
         addItem(ModItems.SILVER_SWORD, "银剑");
         addItem(ModItems.SILVER_AXE, "银斧");
         addItem(ModItems.SILVER_PICKAXE, "银镐");
         addItem(ModItems.SILVER_SHOVEL, "银锹");
         addItem(ModItems.SILVER_HOE, "银锄");
+        addItem(ModItems.MICA_SWORD, "云母剑");
+        addItem(ModItems.MICA_AXE, "云母斧");
+        addItem(ModItems.MICA_PICKAXE, "云母镐");
+        addItem(ModItems.MICA_SHOVEL, "云母锹");
+        addItem(ModItems.MICA_HOE, "云母锄");
         addItem(ModItems.MITHRIL_HELMET, "秘银头盔");
         addItem(ModItems.MITHRIL_CHESTPLATE, "秘银胸甲");
         addItem(ModItems.MITHRIL_LEGGINGS, "秘银护腿");
