@@ -1,4 +1,4 @@
-// 1.19.2	2022-10-09T08:58:51.4759304	Block Item Models: infadv
+// 1.19.2	2022-10-09T11:12:56.4498566	Block Item Models: infadv
 86dd2526012d34cb1e53a993400864d02bf37c04 assets/infadv/models/item/adamantine_ingot.json
 8ab6ae0be0d909701b19fa0edd2b06ab44fca6f2 assets/infadv/models/item/ambrosia.json
 92895cc834dbc98490a841a991a43bca5753a329 assets/infadv/models/item/aquamarine.json
@@ -51,4 +51,3 @@ fbd71553e3102ef15603b1d6d6904367d015a340 assets/infadv/models/item/wine_chocolat
 f1c5470ed7d03eb63c24c9dbdfbd09dd2abed4d8 assets/infadv/models/item/wine_chocolate_golden_scorpion.json
 0abe879b331665f49a52ca37d19bb2fa2b637feb assets/infadv/models/item/wine_chocolate_rum.json
 c0fb37bed5d22b61333b8c9ab3ddabbc9b858c5f assets/infadv/models/item/wine_chocolate_vodka.json
-18c3bdcd35b8f9072efd87120b10234bdefdaff4 assets/infadv/models/item/wine_glass.json
