@@ -1,15 +1,10 @@
-package cx.rain.infadv.util;
+package cx.rain.infadv.utility;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.portal.PortalInfo;
 import net.minecraftforge.common.util.ITeleporter;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.function.Function;
 
 public class Levels {
 

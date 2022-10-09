@@ -1,4 +1,4 @@
-package cx.rain.infadv.util;
+package cx.rain.infadv.utility;
 
 public interface Self<T> {
 

@@ -16,7 +16,7 @@ public class ModEffects {
         EFFECT.register(bus);
     }
 
-    public static final RegistryObject<MobEffect> DWARF_EYE = EFFECT.register("dwarf_eye", () -> new EffectDwarfEye(MobEffectCategory.BENEFICIAL, 4251856));
-    public static final RegistryObject<MobEffect> SCORPION_POISON = EFFECT.register("scorpion_poison", () -> new EffectScorpionVenom(MobEffectCategory.BENEFICIAL, 14329120));
+    public static final RegistryObject<MobEffect> DWARF_EYE = EFFECT.register("dwarf_eye", () -> new DwarfEyeEffect(MobEffectCategory.BENEFICIAL, 4251856));
+    public static final RegistryObject<MobEffect> SCORPION_POISON = EFFECT.register("scorpion_poison", () -> new ScorpionPosionEffect(MobEffectCategory.BENEFICIAL, 14329120));
 
 }

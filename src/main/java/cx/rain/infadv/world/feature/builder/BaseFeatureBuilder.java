@@ -1,6 +1,6 @@
 package cx.rain.infadv.world.feature.builder;
 
-import cx.rain.infadv.util.Self;
+import cx.rain.infadv.utility.Self;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;

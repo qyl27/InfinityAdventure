@@ -43,7 +43,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addBlock(ModBlocks.ANCIENT_DWARF_BRICKS, "远古矮人石砖");
         addBlock(ModBlocks.ANCIENT_DWARF_CRATE, "远古矮人机关");
         addBlock(ModBlocks.DWARF_FURNACE, "矮人冶炼炉");
-        addBlock(ModBlocks.BEER_BARREL, "啤酒桶");
+        addBlock(ModBlocks.BEER_BARREL, "酒桶");
         addBlock(ModBlocks.SKY_GRASS_BLOCK, "天境草方块");
         addBlock(ModBlocks.SKY_LOG, "天境树原木");
         addBlock(ModBlocks.SKY_PLANKS, "天境树木板");
@@ -65,31 +65,10 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.RAW_SILVER, "粗银");
         addItem(ModItems.MICA, "云母");
 
-        addItem(ModItems.EMERALD_SUNRISE, "绿宝石日出");
-        addItem(ModItems.DWARF_MALT_LIQUOR, "矮人麦芽酒");
-        addItem(ModItems.GOLDEN_SCORPION, "金蝎药酒");
-        addItem(ModItems.RUM, "朗姆酒");
-        addItem(ModItems.VODKA, "伏特加");
-        addItem(ModItems.WINE, "葡萄酒");
-        addItem(ModItems.AMBROSIA, "仙馔密酒");
-        addItem(ModItems.MALT_LIQUOR_CHOCOLATE, "麦芽巧克力");
-        addItem(ModItems.EMERALD_CHOCOLATE, "绿宝石巧克力");
-        addItem(ModItems.RUM_CHOCOLATE, "朗姆酒巧克力");
-        addItem(ModItems.VODKA_CHOCOLATE, "伏特加巧克力");
-        addItem(ModItems.WINE_CHOCOLATE, "葡萄酒巧克力");
-        addItem(ModItems.GOLDEN_SCORPION_CHOCOLATE, "金蝎巧克力");
-        addItem(ModItems.WINE_GLASS, "酒杯");
         addItem(ModItems.DREAM_PILLOW, "织梦之枕");
         addItem(ModItems.QUEEN_FANG, "女皇之牙");
-        addItem(ModItems.SOUL_FLUTE, "灵魂笛哨");
         addItem(ModItems.SOUL_SALT, "灵魂盐");
         addItem(ModItems.TARANTULA_EGG, "狼蛛卵");
-        addItem(ModItems.COPPER_COIN, "铜币");
-        addItem(ModItems.SILVER_COIN, "银币");
-        addItem(ModItems.GOLD_COIN, "金币");
-        addItem(ModItems.EMERALD_COIN, "翡玉币");
-        addItem(ModItems.DIAMONDS_GOLD_COIN, "镶钻金币");
-=======
         addItem(ModItems.DREAM_PILLOW, "织梦之枕");
 
         addItem(ModItems.SILVER_SWORD, "银剑");
@@ -125,7 +104,7 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.MICA_HOE, "云母锄");
 
         addItem(ModItems.CUP, "酒杯");
-        addItem(ModItems.CUP_AMBROSIA, "仙馔蜜酒");
+        addItem(ModItems.AMBROSIA, "仙馔蜜酒");
         addItem(ModItems.CUP_DWARF_MALT, "矮人麦芽酒");
         addItem(ModItems.CUP_EMERALD_SUNRISE, "绿宝石日出鸡尾酒");
         addItem(ModItems.CUP_GOLDEN_SCORPION, "金蝎药酒");
@@ -133,8 +112,8 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
         addItem(ModItems.CUP_VODKA, "伏特加");
         addItem(ModItems.CUP_WINE, "葡萄酒");
         addItem(ModItems.WINE_CHOCOLATE_DWARF_MALT, "麦芽酒心巧克力");
-        addItem(ModItems.WINE_CHOCOLATE_EMERALD_SUNRISE, "金蝎酒心巧克力");
-        addItem(ModItems.WINE_CHOCOLATE_GOLDEN_SCORPION, "绿宝石酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_EMERALD_SUNRISE, "绿宝石酒心巧克力");
+        addItem(ModItems.WINE_CHOCOLATE_GOLDEN_SCORPION, "金蝎酒心巧克力");
         addItem(ModItems.WINE_CHOCOLATE_RUM, "朗姆酒心巧克力");
         addItem(ModItems.WINE_CHOCOLATE_VODKA, "伏特加酒心巧克力");
         addItem(ModItems.WINE_CHOCOLATE, "葡萄酒心巧克力");

@@ -4,7 +4,7 @@ import cx.rain.infadv.block.ModBlockItems;
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.effect.ModEffects;
 import cx.rain.infadv.entity.ModEntities;
-import cx.rain.infadv.handler.MobHasEffectHandler;
+import cx.rain.infadv.event.ImmuneEffectEvents;
 import cx.rain.infadv.item.ModItems;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -50,7 +50,6 @@ public class InfAdv {
         ModPlacedFeatures.register(bus);
         ModLevels.REGISTRY.register(bus);
 
-        MinecraftForge.EVENT_BUS.register(new MobHasEffectHandler());
         logger.info("Fresh beginning.");
     }
 

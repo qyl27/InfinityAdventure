@@ -6,9 +6,9 @@ import net.minecraft.world.effect.MobEffectCategory;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class EffectDwarfEye extends MobEffect {
+public class DwarfEyeEffect extends MobEffect {
 
-    public EffectDwarfEye(MobEffectCategory arg, int i) {
+    public DwarfEyeEffect(MobEffectCategory arg, int i) {
         super(arg, i);
     }
 

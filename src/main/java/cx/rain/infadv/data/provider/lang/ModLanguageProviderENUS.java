@@ -64,30 +64,9 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addItem(ModItems.AQUAMARINE, "Aquamarine");
         addItem(ModItems.RAW_SILVER, "Raw Silver");
         addItem(ModItems.MICA, "Mica");
-        addItem(ModItems.EMERALD_SUNRISE, "Emerald Sunrise");
-        addItem(ModItems.DWARF_MALT_LIQUOR, "Dwarf Malt Liquor");
-        addItem(ModItems.GOLDEN_SCORPION, "Golden Scorpion Medicated Liquor");
-        addItem(ModItems.RUM, "RUM");
-        addItem(ModItems.VODKA, "Vodka");
-        addItem(ModItems.WINE, "Wine");
-        addItem(ModItems.AMBROSIA, "Ambrosia");
-        addItem(ModItems.MALT_LIQUOR_CHOCOLATE, "Malt Liquor Chocolate");
-        addItem(ModItems.EMERALD_CHOCOLATE, "Emerald Chocolate");
-        addItem(ModItems.RUM_CHOCOLATE, "Rum Chocolate");
-        addItem(ModItems.VODKA_CHOCOLATE, "Vodka Chocolate");
-        addItem(ModItems.WINE_CHOCOLATE, "Wine Chocolate");
-        addItem(ModItems.GOLDEN_SCORPION_CHOCOLATE, "Golden Scorpion Chocolate");
-        addItem(ModItems.WINE_GLASS, "Wine Glass");
         addItem(ModItems.DREAM_PILLOW, "Dream Pillow");
         addItem(ModItems.QUEEN_FANG, "Queen Fang");
-        addItem(ModItems.SOUL_FLUTE, "Soul Flute");
-        addItem(ModItems.SOUL_SALT, "Soul Salt");
-        addItem(ModItems.TARANTULA_EGG, "Tarantula Egg");
-        addItem(ModItems.COPPER_COIN, "Copper Coin");
-        addItem(ModItems.SILVER_COIN, "Silver Coin");
-        addItem(ModItems.GOLD_COIN, "Gold Coin");
-        addItem(ModItems.EMERALD_COIN, "Emerald Coin");
-        addItem(ModItems.DIAMONDS_GOLD_COIN, "Diamonds Gold Coin");
+
         addItem(ModItems.SILVER_SWORD, "Silver Sword");
         addItem(ModItems.SILVER_AXE, "Silver Axe");
         addItem(ModItems.SILVER_PICKAXE, "Silver Pickaxe");
@@ -121,7 +100,7 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
         addItem(ModItems.MICA_HOE, "Mica Hoe");
 
         addItem(ModItems.CUP, "Cup");
-        addItem(ModItems.CUP_AMBROSIA, "Cup of Ambrosia");
+        addItem(ModItems.AMBROSIA, "Cup of Ambrosia");
         addItem(ModItems.CUP_DWARF_MALT, "Cup of Dwarf Malt");
         addItem(ModItems.CUP_EMERALD_SUNRISE, "Cup of Emerald Sunrise");
         addItem(ModItems.CUP_GOLDEN_SCORPION, "Cup of Golden Scorpion");
