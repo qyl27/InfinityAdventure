@@ -58,6 +58,15 @@ public class ModItems {
     public static final RegistryObject<HoeItem> MITHRIL_HOE = ITEMS.register("mithril_hoe", () -> new HoeItem(ModToolTiers.MITHRIL, -2, -1, new Item.Properties().tab(ModTabs.TOOLS)));
 
     public static final RegistryObject<ForgeSpawnEggItem> DWARF_SPAWN_EGG = ITEMS.register("dwarf_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.DWARF, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> DARK_GHOST_SPAWN_EGG = ITEMS.register("dark_ghost_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.DARK_GHOST, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> BROODER_QUEEN_SPAWN_EGG = ITEMS.register("brooder_queen_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.BROODER_QUEEN, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> MUSHROOM_FAERY_SPAWN_EGG = ITEMS.register("mushroom_faery_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MUSHROOM_FAERY, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> MUSHROOM_LURKER_SPAWN_EGG = ITEMS.register("mushroom_lurker_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MUSHROOM_LURKER, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> POISON_LURKER_SPAWN_EGG = ITEMS.register("poison_lurker_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.POISON_LURKER, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> POISON_THROAT_SPAWN_EGG = ITEMS.register("poison_throat_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.POISON_THROAT, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> TARANTULA_SPAWN_EGG = ITEMS.register("tarantula_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TARANTULA, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> VILE_RAT_SPAWN_EGG = ITEMS.register("vile_rat_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.VILE_RAT, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
+    public static final RegistryObject<ForgeSpawnEggItem> TRAPPER_SPAWN_EGG = ITEMS.register("trapper_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TRAPPER, 0x66ccff, 0x0099ff, new Item.Properties().tab(ModTabs.MISC).stacksTo(16)));
 
     public static final RegistryObject<Item> DWARF_COPPER_COIN = ITEMS.register("dwarf_copper_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));
     public static final RegistryObject<Item> DWARF_SILVER_COIN = ITEMS.register("dwarf_silver_coin", () -> new Item(new Item.Properties().tab(ModTabs.MISC)));

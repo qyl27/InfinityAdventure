@@ -4,9 +4,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
@@ -19,24 +19,20 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@ParametersAreNonnullByDefault
-public class DwarfEntity extends PathfinderMob implements IAnimatable {
+public class BrooderQueenEntity extends Monster implements IAnimatable {
 
     protected AnimationFactory animationFactory = new AnimationFactory(this);
 
-    public DwarfEntity(EntityType<? extends PathfinderMob> type, Level level) {
+    public BrooderQueenEntity(EntityType<? extends Monster> type, Level level) {
         super(type, level);
     }
 
     public static AttributeSupplier getDefaultAttributes() {
         return createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 20)
+                .add(Attributes.MAX_HEALTH, 350.0)
                 .add(Attributes.ARMOR, 2)
-                .add(Attributes.ATTACK_DAMAGE, 2.5)
-                .add(Attributes.ATTACK_SPEED, 2.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.7)
+                .add(Attributes.ATTACK_DAMAGE, 12.0)
+                .add(Attributes.MOVEMENT_SPEED, 0.1)
                 .build();
     }
 
@@ -47,12 +43,12 @@ public class DwarfEntity extends PathfinderMob implements IAnimatable {
 
     private <E extends IAnimatable> PlayState animationPredicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dwarf.move", ILoopType.EDefaultLoopTypes.LOOP));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("brooder_queen.move", ILoopType.EDefaultLoopTypes.LOOP));
             return PlayState.CONTINUE;
         }
 
-        // Todo: qyl27: attack animations.
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dwarf.idle", ILoopType.EDefaultLoopTypes.LOOP));
+        // Todo: attack animations.
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("brooder_queen.idle", ILoopType.EDefaultLoopTypes.LOOP));
         return PlayState.CONTINUE;
     }
 
@@ -87,8 +83,4 @@ public class DwarfEntity extends PathfinderMob implements IAnimatable {
         return super.getDeathSound();
     }
 
-    @Override
-    protected float getSoundVolume() {
-        return 0.2f;
-    }
 }

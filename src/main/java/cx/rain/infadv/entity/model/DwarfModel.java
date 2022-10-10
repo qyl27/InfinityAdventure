@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class DwarfModel extends AnimatedGeoModel<DwarfEntity> {
+
     @Override
     public ResourceLocation getModelResource(DwarfEntity object) {
         return new ResourceLocation(InfAdv.MODID, "geo/dwarf.geo.json");
@@ -20,4 +21,5 @@ public class DwarfModel extends AnimatedGeoModel<DwarfEntity> {
     public ResourceLocation getAnimationResource(DwarfEntity animatable) {
         return new ResourceLocation(InfAdv.MODID, "animations/dwarf.animation.json");
     }
+
 }
