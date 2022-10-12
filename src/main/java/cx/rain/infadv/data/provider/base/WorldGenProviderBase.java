@@ -7,6 +7,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.Lifecycle;
+import cx.rain.infadv.utility.ResourceKeys;
 import net.minecraft.core.*;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
@@ -51,7 +52,7 @@ import static net.minecraft.world.level.levelgen.SurfaceRules.ifTrue;
 import static net.minecraft.world.level.levelgen.SurfaceRules.verticalGradient;
 
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
-public abstract class WorldGenProviderBase implements DataProvider {
+public abstract class WorldGenProviderBase implements DataProvider, ResourceKeys {
 
     private final Gson gson = (new GsonBuilder()).setPrettyPrinting().create();
     private final Logger logger = LoggerFactory.getLogger(WorldGenProviderBase.class);
@@ -178,14 +179,6 @@ public abstract class WorldGenProviderBase implements DataProvider {
     @Override
     public String getName() {
         return "Worldgen: " + modid;
-    }
-
-    protected ResourceLocation modLoc(String name) {
-        return new ResourceLocation(modid, name);
-    }
-
-    protected ResourceLocation mcLoc(String name) {
-        return new ResourceLocation(name);
     }
 
     // =================================================================================================================
@@ -572,21 +565,21 @@ public abstract class WorldGenProviderBase implements DataProvider {
      * @param veinGap                         控制矿脉生成。
      * @see <a href="https://minecraft.fandom.com/zh/wiki/%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0">WIKI：密度函数</a>
      */
-    protected NoiseRouter router(DensityFunctionBuilder barrierNoise,
-                                 DensityFunctionBuilder fluidLevelFloodednessNoise,
-                                 DensityFunctionBuilder fluidLevelSpreadNoise,
-                                 DensityFunctionBuilder lavaNoise,
-                                 DensityFunctionBuilder temperature,
-                                 DensityFunctionBuilder vegetation,
-                                 DensityFunctionBuilder continents,
-                                 DensityFunctionBuilder erosion,
-                                 DensityFunctionBuilder depth,
-                                 DensityFunctionBuilder ridges,
-                                 DensityFunctionBuilder initialDensityWithoutJaggedness,
-                                 DensityFunctionBuilder finalDensity,
-                                 DensityFunctionBuilder veinToggle,
-                                 DensityFunctionBuilder veinRidged,
-                                 DensityFunctionBuilder veinGap) {
+    protected NoiseRouter routers(DensityFunctionBuilder barrierNoise,
+                                  DensityFunctionBuilder fluidLevelFloodednessNoise,
+                                  DensityFunctionBuilder fluidLevelSpreadNoise,
+                                  DensityFunctionBuilder lavaNoise,
+                                  DensityFunctionBuilder temperature,
+                                  DensityFunctionBuilder vegetation,
+                                  DensityFunctionBuilder continents,
+                                  DensityFunctionBuilder erosion,
+                                  DensityFunctionBuilder depth,
+                                  DensityFunctionBuilder ridges,
+                                  DensityFunctionBuilder initialDensityWithoutJaggedness,
+                                  DensityFunctionBuilder finalDensity,
+                                  DensityFunctionBuilder veinToggle,
+                                  DensityFunctionBuilder veinRidged,
+                                  DensityFunctionBuilder veinGap) {
         return new NoiseRouter(barrierNoise.function,
                 fluidLevelFloodednessNoise.function,
                 fluidLevelSpreadNoise.function,
@@ -625,21 +618,21 @@ public abstract class WorldGenProviderBase implements DataProvider {
      * @param veinGap                         控制矿脉生成。
      * @see <a href="https://minecraft.fandom.com/zh/wiki/%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0">WIKI：密度函数</a>
      */
-    protected NoiseRouter router(DensityFunction barrierNoise,
-                                 DensityFunction fluidLevelFloodednessNoise,
-                                 DensityFunction fluidLevelSpreadNoise,
-                                 DensityFunction lavaNoise,
-                                 DensityFunction temperature,
-                                 DensityFunction vegetation,
-                                 DensityFunction continents,
-                                 DensityFunction erosion,
-                                 DensityFunction depth,
-                                 DensityFunction ridges,
-                                 DensityFunction initialDensityWithoutJaggedness,
-                                 DensityFunction finalDensity,
-                                 DensityFunction veinToggle,
-                                 DensityFunction veinRidged,
-                                 DensityFunction veinGap) {
+    protected NoiseRouter routers(DensityFunction barrierNoise,
+                                  DensityFunction fluidLevelFloodednessNoise,
+                                  DensityFunction fluidLevelSpreadNoise,
+                                  DensityFunction lavaNoise,
+                                  DensityFunction temperature,
+                                  DensityFunction vegetation,
+                                  DensityFunction continents,
+                                  DensityFunction erosion,
+                                  DensityFunction depth,
+                                  DensityFunction ridges,
+                                  DensityFunction initialDensityWithoutJaggedness,
+                                  DensityFunction finalDensity,
+                                  DensityFunction veinToggle,
+                                  DensityFunction veinRidged,
+                                  DensityFunction veinGap) {
         return new NoiseRouter(barrierNoise, fluidLevelFloodednessNoise, fluidLevelSpreadNoise, lavaNoise, temperature,
                 vegetation, continents, erosion, depth, ridges, initialDensityWithoutJaggedness,
                 finalDensity, veinToggle, veinRidged, veinGap);

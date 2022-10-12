@@ -4,10 +4,8 @@ import cx.rain.infadv.block.ModBlockItems;
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.effect.ModEffects;
 import cx.rain.infadv.entity.ModEntities;
-import cx.rain.infadv.event.ImmuneEffectEvents;
 import cx.rain.infadv.item.ModItems;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import cx.rain.infadv.world.gen.level.ModLevels;
 import cx.rain.infadv.world.feature.ModConfiguredFeatures;
@@ -30,7 +28,7 @@ public class InfAdv {
 
     private static final Logger logger = LoggerFactory.getLogger(NAME);
 
-    public InfAdv() {
+    public  InfAdv() {
         INSTANCE = this;
 
         logger.info("Loading InfAdv. Version: " + VERSION);
@@ -48,7 +46,7 @@ public class InfAdv {
 
         ModConfiguredFeatures.register(bus);
         ModPlacedFeatures.register(bus);
-        ModLevels.REGISTRY.register(bus);
+        ModLevels.register(bus);
 
         logger.info("Fresh beginning.");
     }

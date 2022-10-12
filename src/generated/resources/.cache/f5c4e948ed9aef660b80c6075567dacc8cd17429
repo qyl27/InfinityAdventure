@@ -1,7 +1,8 @@
-// 1.19.2	2022-10-09T11:12:56.4498566	Block Item Models: infadv
+// 1.19.2	2022-10-12T23:09:25.3684406	Block Item Models: infadv
 86dd2526012d34cb1e53a993400864d02bf37c04 assets/infadv/models/item/adamantine_ingot.json
 8ab6ae0be0d909701b19fa0edd2b06ab44fca6f2 assets/infadv/models/item/ambrosia.json
 92895cc834dbc98490a841a991a43bca5753a329 assets/infadv/models/item/aquamarine.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/brooder_queen_spawn_egg.json
 416d858c79a3dffb0b41f7f01278262b5111c96d assets/infadv/models/item/cup.json
 14505cf5550b9214e0de8d4afc8f02e198a800a0 assets/infadv/models/item/cup_dwarf_malt.json
 828ff3f87a833c4b0241f5a3adeddb3640a5f3b3 assets/infadv/models/item/cup_emerald_sunrise.json
@@ -9,6 +10,7 @@ a2c917464c2f6351299e29d70a04a20904367b81 assets/infadv/models/item/cup_golden_sc
 2531855e37fbdb77d3d5458272b7a8012597eaa6 assets/infadv/models/item/cup_rum.json
 26796de8b5748399fc778f7980bc9d6a7398b9b0 assets/infadv/models/item/cup_vodka.json
 3474e15170eb0bcbdeee9e23e3eff23651c93ae1 assets/infadv/models/item/cup_wine.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/dark_ghost_spawn_egg.json
 2d7743d6ea02be6f7b12bf0fa551f5fb18af5e09 assets/infadv/models/item/dream_pillow.json
 d8a04065142526225a9d5fadebc7486fb96443b8 assets/infadv/models/item/dwarf_copper_coin.json
 6d998f9bb9c754871b0442896139688b4148b520 assets/infadv/models/item/dwarf_diamond_coin.json
@@ -33,6 +35,10 @@ fa826b70dc4261a336df6dc837c0c767db7cb461 assets/infadv/models/item/mithril_ingot
 34a718258c5fb6f7f04f562d58aa870efeb65b8c assets/infadv/models/item/mithril_pickaxe.json
 410ac584e30410adbbde4f8529e4cfedfa9b105d assets/infadv/models/item/mithril_shovel.json
 1422afe4f3fdae89a94cf49e7670b817a63f6424 assets/infadv/models/item/mithril_sword.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/mushroom_faery_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/mushroom_lurker_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/poison_lurker_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/poison_throat_spawn_egg.json
 726149f4bc146495f2396a1052a2d68e6799dca6 assets/infadv/models/item/queen_fang.json
 03042dd1b4be951fdf873eadf786b18979ae8569 assets/infadv/models/item/raw_silver.json
 8e15e686cbc33a24cbdeb247edc8abf26ef47a26 assets/infadv/models/item/ruby.json
@@ -45,6 +51,9 @@ ec37a3102ea27d1b59970a21f997ff94b7745682 assets/infadv/models/item/silver_sword.
 97224de1037eede3762993f4af608e5faceab7fc assets/infadv/models/item/soul_salt.json
 4cd65f41beb51f4b95458a05f5d4fbd46df0be92 assets/infadv/models/item/soul_whistle.json
 b2b8901080594efac1445bca6dea4f6134533ec4 assets/infadv/models/item/tarantula_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/tarantula_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/trapper_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infadv/models/item/vile_rat_spawn_egg.json
 a0c13793e0bab6be432da8485001903316e76156 assets/infadv/models/item/wine_chocolate.json
 fbd71553e3102ef15603b1d6d6904367d015a340 assets/infadv/models/item/wine_chocolate_dwarf_malt.json
 46bbd578a0f79e50b272b9e9fc6d0fe6d622dabb assets/infadv/models/item/wine_chocolate_emerald_sunrise.json

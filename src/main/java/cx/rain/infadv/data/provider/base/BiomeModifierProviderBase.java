@@ -9,16 +9,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class BiomeModifierProviderBase implements DataProvider {
-    protected DataGenerator gen;
-    protected String modId;
+    protected final DataGenerator gen;
+    protected final String modId;
 
-    protected Map<String, BiomeModifier> BIOME_MODIFIERS = new HashMap<>();
+    protected final Map<String, BiomeModifier> BIOME_MODIFIERS = new HashMap<>();
 
     public BiomeModifierProviderBase(DataGenerator generator, String modid) {
         gen = generator;
@@ -28,18 +29,18 @@ public abstract class BiomeModifierProviderBase implements DataProvider {
     public abstract void addBiomeModifiers();
 
     protected void oreFeatures(String name, TagKey<Biome> biomes, ResourceLocation features) {
-        features(name, biomes, features, Step.UNDERGROUND_ORES);
+        features(name, biomes, features, GenerationStep.Decoration.UNDERGROUND_ORES);
     }
 
     protected void overworldOreFeatures(String name, ResourceLocation features) {
-        overworldFeatures(name, features, Step.UNDERGROUND_ORES);
+        overworldFeatures(name, features, GenerationStep.Decoration.UNDERGROUND_ORES);
     }
 
-    protected void overworldFeatures(String name, ResourceLocation features, Step step) {
+    protected void overworldFeatures(String name, ResourceLocation features, GenerationStep.Decoration step) {
         features(name, BiomeTags.IS_OVERWORLD, features, step);
     }
 
-    protected void features(String name, TagKey<Biome> biomes, ResourceLocation features, Step step) {
+    protected void features(String name, TagKey<Biome> biomes, ResourceLocation features, GenerationStep.Decoration step) {
         BIOME_MODIFIERS.put(name, new BiomeModifier(forgeLoc("add_features"), biomes, features, step));
     }
 
@@ -64,7 +65,7 @@ public abstract class BiomeModifierProviderBase implements DataProvider {
             json.addProperty("type", entry.getValue().type.toString());
             json.addProperty("biomes", "#" + entry.getValue().biomes.location());
             json.addProperty("features", entry.getValue().features.toString());
-            json.addProperty("step", entry.getValue().step.getStep());
+            json.addProperty("step", entry.getValue().step.getName());
             save(cache, json, entry.getKey());
         }
     }
@@ -79,22 +80,6 @@ public abstract class BiomeModifierProviderBase implements DataProvider {
         return "Biome Modifiers: " + modId;
     }
 
-    public record BiomeModifier(ResourceLocation type, TagKey<Biome> biomes, ResourceLocation features, Step step) {
-    }
-
-    public enum Step {
-        // Todo: qyl27: more steps.
-        UNDERGROUND_ORES("underground_ores"),
-        ;
-
-        private String stepName;
-
-        private Step(String step) {
-            stepName = step;
-        }
-
-        public String getStep() {
-            return stepName;
-        }
+    public record BiomeModifier(ResourceLocation type, TagKey<Biome> biomes, ResourceLocation features, GenerationStep.Decoration step) {
     }
 }

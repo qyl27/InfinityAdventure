@@ -7,7 +7,6 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
-import org.jetbrains.annotations.NotNull;
 
 public class ModItemModelProvider extends ItemModelProviderBase {
     private final boolean wereBlockItems;
@@ -27,7 +26,7 @@ public class ModItemModelProvider extends ItemModelProviderBase {
     }
 
     @Override
-    public @NotNull String getName() {
+    public String getName() {
         return wereBlockItems ? super.getName() : "Block Item Models: " + modid;
     }
 }

@@ -24,7 +24,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 public class TrapperEntity extends Monster implements IAnimatable {
 
-    protected AnimationFactory animationFactory = new AnimationFactory(this);
+    protected final AnimationFactory animationFactory = new AnimationFactory(this);
 
     public TrapperEntity(EntityType<? extends Monster> type, Level level) {
         super(type, level);

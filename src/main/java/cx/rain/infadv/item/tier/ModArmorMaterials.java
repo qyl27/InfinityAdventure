@@ -5,10 +5,10 @@ import cx.rain.infadv.item.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.function.Supplier;
 
@@ -26,9 +26,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
     private final SoundEvent equipSound;
     private final float armorToughness;
     private final float armorKnockbackResistance;
-    private final LazyLoadedValue<Ingredient> repairItem;
+    private final Lazy<Ingredient> repairItem;
 
-    private ModArmorMaterials(String name, int durabilityModifier, int[] protectionPerSlot, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredients) {
+    ModArmorMaterials(String name, int durabilityModifier, int[] protectionPerSlot, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredients) {
         materialName = name;
         durabilityMultiplier = durabilityModifier;
         slotProtections = protectionPerSlot;
@@ -36,7 +36,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
         equipSound = sound;
         armorToughness = toughness;
         armorKnockbackResistance = knockbackResistance;
-        repairItem = new LazyLoadedValue(repairIngredients);
+        repairItem = Lazy.of(repairIngredients);
     }
 
     public int getDurabilityForSlot(EquipmentSlot slot) {

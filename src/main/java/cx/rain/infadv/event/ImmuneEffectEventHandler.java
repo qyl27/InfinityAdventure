@@ -12,7 +12,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = InfAdv.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ImmuneEffectEvents {
+public class ImmuneEffectEventHandler {
     @SubscribeEvent
     public void immuneEffect(MobEffectEvent.Applicable event) {
         MobEffectInstance effect = event.getEffectInstance();

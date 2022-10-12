@@ -6,9 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -16,8 +14,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -26,15 +22,14 @@ public abstract class ItemModelProviderBase extends WarnItemModelProvider {
     public static final ResourceLocation GENERATED = new ResourceLocation("item/generated");
     public static final ResourceLocation HANDHELD = new ResourceLocation("item/handheld");
 
-    protected DeferredRegister<Item> deferredRegister = null;
-    protected Set<Item> skipped = new HashSet<>();
-    protected Set<String> skippedPath = new HashSet<>();
+    protected final DeferredRegister<Item> deferredRegister;
+    protected final Set<Item> skipped = new HashSet<>();
+    protected final Set<String> skippedPath = new HashSet<>();
     protected boolean manually = false;
 
     public ItemModelProviderBase(DataGenerator generator, String modid,
                                  ExistingFileHelper existingFileHelper, DeferredRegister<Item> registry) {
         super(generator, modid, existingFileHelper);
-
         deferredRegister = registry;
     }
 
@@ -55,14 +50,6 @@ public abstract class ItemModelProviderBase extends WarnItemModelProvider {
             skippedPath.add(path);
         }
         return super.getBuilder(path);
-    }
-
-    protected void skipItems(Item... items) {
-        skipItems(Arrays.asList(items));
-    }
-
-    protected void skipItems(Collection<? extends Item> items) {
-        skipped.addAll(items);
     }
 
     protected final ItemModelBuilder generated(Item item) {

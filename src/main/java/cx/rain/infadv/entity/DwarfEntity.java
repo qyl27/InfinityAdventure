@@ -24,7 +24,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 public class DwarfEntity extends PathfinderMob implements IAnimatable {
 
-    protected AnimationFactory animationFactory = new AnimationFactory(this);
+    protected final AnimationFactory animationFactory = new AnimationFactory(this);
 
     public DwarfEntity(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);

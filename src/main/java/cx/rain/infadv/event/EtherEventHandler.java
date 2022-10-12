@@ -1,9 +1,9 @@
 package cx.rain.infadv.event;
 
 import cx.rain.infadv.InfAdv;
+import cx.rain.infadv.item.ModItems;
 import cx.rain.infadv.utility.Levels;
 import cx.rain.infadv.world.gen.level.ModLevels;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -14,24 +14,23 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = InfAdv.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class SkylandEnterEvents {
+public class EtherEventHandler {
 
     @SubscribeEvent
     public static void onSleep(PlayerSleepInBedEvent event) {
-        BlockPos pos = event.getPos();
         Player player = event.getEntity();
-        Level level = player.getLevel();
-        // Todo: qyl27: dream pillow, and enter by chance.
+        if (player.getMainHandItem().is(ModItems.DREAM_PILLOW.get()) && Levels.to(player, ModLevels.ETHER)) {
+            event.setResult(Player.BedSleepingProblem.OTHER_PROBLEM);
+        }
     }
 
     @SubscribeEvent
     public static void onDropLevel(LivingDamageEvent event) {
         Entity entity = event.getEntity();
-        if (event.getSource() == DamageSource.OUT_OF_WORLD && Levels.is(entity.getLevel(), ModLevels.SKYLAND)) {
+        if (event.getSource() == DamageSource.OUT_OF_WORLD && Levels.is(entity.getLevel(), ModLevels.ETHER)) {
             if (Levels.to(entity, Level.OVERWORLD)) {
                 event.setCanceled(true);
             }
         }
-        // Todo: qyl27: drop from skyland, go to over world.
     }
 }

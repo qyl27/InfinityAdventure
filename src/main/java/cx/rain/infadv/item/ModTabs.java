@@ -20,7 +20,7 @@ public class ModTabs extends CreativeModeTab {
     public static final CreativeModeTab FOODS = new ModTabs("foods", ModItems.AMBROSIA);
     public static final CreativeModeTab ORES = new ModTabs("ores", ModItems.RUBY);
 
-    protected Supplier<? extends ItemLike> iconItem;
+    protected final Supplier<? extends ItemLike> iconItem;
 
     public ModTabs(String label, Supplier<? extends ItemLike> icon) {
         super("infadv_" + label);

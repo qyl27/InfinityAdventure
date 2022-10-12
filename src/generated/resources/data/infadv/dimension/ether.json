@@ -1,0 +1,11 @@
+{
+  "type": "infadv:ether",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "infadv:ether"
+    },
+    "settings": "infadv:ether_noise_settings"
+  }
+}

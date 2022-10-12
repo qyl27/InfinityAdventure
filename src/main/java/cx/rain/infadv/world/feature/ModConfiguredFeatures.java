@@ -3,12 +3,20 @@ package cx.rain.infadv.world.feature;
 import com.google.common.base.Suppliers;
 import cx.rain.infadv.InfAdv;
 import cx.rain.infadv.block.ModBlocks;
+import cx.rain.infadv.world.feature.builder.OreFeatureBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
+import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -50,4 +58,17 @@ public class ModConfiguredFeatures {
     public static final RegistryObject<ConfiguredFeature<?, ?>> RUBY_ORE = CONFIGURED_FEATURES.register("ruby_ore", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(RUBY_REPLACEMENT.get(), 5)));
     public static final RegistryObject<ConfiguredFeature<?, ?>> AQUAMARINE_ORE_MOUNTAIN = CONFIGURED_FEATURES.register("aquamarine_ore_mountain", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(AQUAMARINE_REPLACEMENT.get(), 4)));
     public static final RegistryObject<ConfiguredFeature<?, ?>> AQUAMARINE_ORE_OCEAN = CONFIGURED_FEATURES.register("aquamarine_ore_ocean", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(AQUAMARINE_REPLACEMENT.get(), 3)));
+
+    public static final OreFeatureBuilder ETHER_COAL = new OreFeatureBuilder()
+            .addReplaceRule(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), Blocks.COAL_ORE)
+            .addModifier(CountPlacement.of(20))
+            .addModifier(HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.TOP))
+            .register("sky_peace_coal");
+
+    public static final OreFeatureBuilder ETHER_IRON = new OreFeatureBuilder()
+            .addReplaceRule(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), Blocks.IRON_ORE)
+            .addModifier(BiomeFilter.biome())
+            .addModifier(CountPlacement.of(20))
+            .addModifier(HeightRangePlacement.uniform(VerticalAnchor.absolute(100), VerticalAnchor.TOP))
+            .register("sky_peace_iron");
 }

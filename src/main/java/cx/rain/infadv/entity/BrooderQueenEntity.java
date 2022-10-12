@@ -21,7 +21,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class BrooderQueenEntity extends Monster implements IAnimatable {
 
-    protected AnimationFactory animationFactory = new AnimationFactory(this);
+    protected final AnimationFactory animationFactory = new AnimationFactory(this);
 
     public BrooderQueenEntity(EntityType<? extends Monster> type, Level level) {
         super(type, level);

@@ -21,7 +21,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class MushroomLurkerEntity extends Monster implements IAnimatable {
 
-    protected AnimationFactory animationFactory = new AnimationFactory(this);
+    protected final AnimationFactory animationFactory = new AnimationFactory(this);
 
     protected MushroomLurkerEntity(EntityType<? extends Monster> type, Level level) {
         super(type, level);

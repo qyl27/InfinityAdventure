@@ -1,9 +1,9 @@
 package cx.rain.infadv.world.feature.builder;
 
 import cx.rain.infadv.utility.Self;
+import cx.rain.infadv.world.feature.ModConfiguredFeatures;
+import cx.rain.infadv.world.feature.ModPlacedFeatures;
 import net.minecraft.core.Holder;
-import net.minecraft.data.worldgen.features.FeatureUtils;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -14,6 +14,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A builder for feature
@@ -24,11 +26,8 @@ public abstract class BaseFeatureBuilder<C extends FeatureConfiguration, SELF ex
     protected final Feature<C> feature;
     protected final List<PlacementModifier> modifiers = new LinkedList<>();
 
-    private volatile PlacedFeature result = null;
-    private volatile Holder<PlacedFeature> holder = null;
-    private volatile Holder<ConfiguredFeature<C, ?>> configured = null;
-
-    private volatile boolean isConfiguredRegistered = false, isFeatureRegistered = false;
+    private volatile RegistryObject<PlacedFeature> holder = null;
+    private volatile RegistryObject<ConfiguredFeature<C, Feature<C>>> configured = null;
 
     public BaseFeatureBuilder(Feature<C> feature) {
         this.feature = feature;
@@ -84,125 +83,58 @@ public abstract class BaseFeatureBuilder<C extends FeatureConfiguration, SELF ex
     protected abstract C buildConfiguration();
 
     /**
-     * Create {@link ConfiguredFeature} from the builder.
-     * <p>Note: Not assure that the configured feature is registered in {@link FeatureUtils}.</p>
-     *
-     * @return configured feature, not ensure registered
-     */
-    public ConfiguredFeature<C, ?> buildConfigured() {
-        return new ConfiguredFeature<>(feature, buildConfiguration());
-    }
-
-    /**
-     * Create a {@link ConfiguredFeature} and register it.
-     *
-     * @param name default name of configured feature
-     * @return a registered configured feature
-     */
-    public Holder<ConfiguredFeature<C,?>> registerConfigured(String name) {
-        if (!isConfiguredRegistered) {
-            configured = FeatureUtils.register(name, feature, buildConfiguration());
-            isConfiguredRegistered = true;
-        }
-        return configured;
-    }
-
-    /**
-     * Create a {@link ConfiguredFeature} and register it.
-     *
-     * @param modid mod id
-     * @param name  name
-     * @return a registered configured feature
-     */
-    public Holder<ConfiguredFeature<C,?>> registerConfigured(String modid, String name) {
-        return registerConfigured(modid + ":" + name);
-    }
-
-    /**
-     * Create a {@link ConfiguredFeature} and register it.
-     *
-     * @param id name
-     * @return a registered configured feature
-     */
-    public Holder<ConfiguredFeature<C,?>> registerConfigured(ResourceLocation id) {
-        return registerConfigured(id.toString());
-    }
-
-    /**
-     * Create a {@link ConfiguredFeature} and register it.
-     *
-     * @param buildFor get name from it
-     * @return a registered configured feature
-     */
-    public Holder<ConfiguredFeature<C,?>> registerConfigured(RegistryObject<?> buildFor) {
-        return registerConfigured(buildFor.getId());
-    }
-
-    /**
-     * Create {@link PlacedFeature} from the builder.
-     * <p>Note: Not assure that the configured feature or placed feature is registered in {@link PlacementUtils}.</p>
-     *
-     * @return placed feature, not ensure registered
-     */
-    public PlacedFeature build() {
-        if (result == null) {
-            synchronized (this) {
-                if (result == null) {
-                    result = new PlacedFeature(Holder.direct(buildConfigured()), modifiers);
-                }
-            }
-        }
-        return result;
-    }
-
-    /**
      * Create a {@link PlacedFeature} and register it.
      *
      * @param name default name of configured feature and placed feature
-     * @return a registered placed feature
      */
-    public Holder<PlacedFeature> register(String name) {
+    public SELF register(String name) {
         synchronized (this) {
-            if (!isConfiguredRegistered) {
-                registerConfigured(name);
-                isConfiguredRegistered = true;
-            }
-            if (!isFeatureRegistered) {
-                holder = PlacementUtils.register(name, configured, modifiers);
-                isFeatureRegistered = true;
+            if (holder == null) {
+                configured = ModConfiguredFeatures.CONFIGURED_FEATURES.register(name, () -> new ConfiguredFeature<>(feature, buildConfiguration()));
+                holder = ModPlacedFeatures.PLACEMENT_FEATURES.register(name, () -> new PlacedFeature(Holder.hackyErase(configured.getHolder().get()), modifiers));
             }
         }
-        return holder;
-    }
-
-    /**
-     * Create a {@link PlacedFeature} and register it, name is modid:name
-     *
-     * @param modid mod id
-     * @param name  name
-     * @return a registered placed feature
-     */
-    public Holder<PlacedFeature> register(String modid, String name) {
-        return register(modid + ":" + name);
+        return self();
     }
 
     /**
      * Create a {@link PlacedFeature} and register it, name is modid:name
      *
      * @param id name
-     * @return a registered placed feature
      */
-    public Holder<PlacedFeature> register(ResourceLocation id) {
+    public SELF register(ResourceLocation id) {
         return register(id.toString());
     }
 
-    /**
-     * Create a {@link PlacedFeature} and register it, name is builderFor.id
-     *
-     * @param buildFor get name from it
-     * @return a registered placed feature
-     */
-    public Holder<PlacedFeature> register(RegistryObject<?> buildFor) {
-        return register(buildFor.getId());
+    public RegistryObject<ConfiguredFeature<C, Feature<C>>> configuredObj() {
+        return Objects.requireNonNull(configured, "Please register the feature first.");
+    }
+
+    public ConfiguredFeature<C, Feature<C>> configured() {
+        return configuredObj().get();
+    }
+
+    public Holder<ConfiguredFeature<C, Feature<C>>> configuredHolder() {
+        return configuredObj().getHolder().get();
+    }
+
+    public Optional<Holder<ConfiguredFeature<C, Feature<C>>>> configuredHolderOpt() {
+        return configuredObj().getHolder();
+    }
+
+    public RegistryObject<PlacedFeature> object() {
+        return Objects.requireNonNull(holder, "Please register the feature first.");
+    }
+
+    public PlacedFeature get() {
+        return object().get();
+    }
+
+    public Holder<PlacedFeature> holder() {
+        return object().getHolder().get();
+    }
+
+    public Optional<Holder<PlacedFeature>> holderOpt() {
+        return object().getHolder();
     }
 }
