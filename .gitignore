@@ -26,3 +26,4 @@ forge*changelog.txt
 
 libs/
 /src/generated/resources/reports/minecraft/
+/src/generated/resources/reports/
