@@ -25,6 +25,8 @@ public class ModLanguageProviderENUS extends LanguageProviderBase {
 
         addEffect(ModEffects.DWARF_EYE, "Dwarf Eye");
         addEffect(ModEffects.SCORPION_POISON, "Scorpion Poison");
+        addEffect(ModEffects.MUSHROOM_CURE, "Mushroom Cure");
+        addEffect(ModEffects.DISGUISE, "Disguise");
 
         addBlock(ModBlocks.SILVER_ORE, "Silver Ore");
         addBlock(ModBlocks.MITHRIL_ORE, "Mithril Ore");

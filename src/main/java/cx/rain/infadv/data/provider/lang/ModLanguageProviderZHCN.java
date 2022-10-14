@@ -25,6 +25,8 @@ public class ModLanguageProviderZHCN extends LanguageProviderBase {
 
         addEffect(ModEffects.DWARF_EYE, "矮人之眼");
         addEffect(ModEffects.SCORPION_POISON, "蝎毒");
+        addEffect(ModEffects.MUSHROOM_CURE, "蘑菇疗法");
+        addEffect(ModEffects.DISGUISE, "伪装");
 
         addBlock(ModBlocks.SILVER_ORE, "银矿石");
         addBlock(ModBlocks.MITHRIL_ORE, "秘银矿石");
