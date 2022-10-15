@@ -3,14 +3,13 @@ package cx.rain.infadv;
 import cx.rain.infadv.block.ModBlockItems;
 import cx.rain.infadv.block.ModBlocks;
 import cx.rain.infadv.effect.ModEffects;
+import cx.rain.infadv.enchantment.ModEnchantments;
 import cx.rain.infadv.entity.ModEntities;
 import cx.rain.infadv.item.ModItems;
-
-import net.minecraftforge.eventbus.api.IEventBus;
-import cx.rain.infadv.world.gen.level.ModLevels;
 import cx.rain.infadv.world.feature.ModConfiguredFeatures;
 import cx.rain.infadv.world.feature.ModPlacedFeatures;
-
+import cx.rain.infadv.world.gen.level.ModLevels;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -43,6 +42,7 @@ public class InfAdv {
         ModBlockItems.register(bus);
         ModEffects.register(bus);
         ModEntities.register(bus);
+        ModEnchantments.register(bus);
 
         ModConfiguredFeatures.register(bus);
         ModPlacedFeatures.register(bus);
