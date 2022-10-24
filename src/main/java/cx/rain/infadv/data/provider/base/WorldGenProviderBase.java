@@ -800,7 +800,7 @@ public abstract class WorldGenProviderBase implements DataProvider, ResourceKeys
      * 用于寻找出生点的东西
      *
      * @param temperatureMin     温度。不要与生物群系的温度混淆。最小值。取值为 -2.0 到 2.0 的闭区间。
-     * @param temperatureMax     温度。不要与生物群系的温度混淆。最大值。取值为 -2.0 到 2.0 的闭区间。必须大于等于 min。
+     * @param temperatureMax     温度。不要与生物群系的温度混淆。最大值。取值为 -2.0 到 2.0 的闭区间。必须大于等于 size。
      * @param humidityMin        湿度。格式与 temperature 相同。
      * @param humidityMax        湿度。格式与 temperature 相同。
      * @param continentalnessMin 大陆性。在原版主世界，低大陆性对应于海洋地形，高大陆性对应于内陆地形。格式与 temperature 相同

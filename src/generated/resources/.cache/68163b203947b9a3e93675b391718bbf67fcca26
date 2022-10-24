@@ -1,7 +1,7 @@
-// 1.19.2	2022-10-12T23:09:25.3704391	Worldgen: infadv
+// 1.19.2	2022-10-18T15:36:14.8831522	Worldgen: infadv
 343fa3e8aad3476f2dcdffeba3d147d0ed5b016e data/infadv/dimension/ether.json
 a1ab4ae1151bb7b90435538a86c99648f266e2b6 data/infadv/dimension_type/ether.json
-27c8dbc26331bda49d8766c7f3cd79780fb8c4bb data/infadv/worldgen/noise_settings/ether_noise_settings.json
+6110095ccf68ebca5111bab311a5e3eb21c1e53d data/infadv/worldgen/noise_settings/ether_noise_settings.json
 1d00c167438e4c09eab2588e971fe417cd1d3893 reports/infadv/worldgen/biome/ether.json
 081694618074ad1706187a14d74501ae69040561 reports/infadv/worldgen/configured_feature/adamantine_ore.json
 a8a183c60668ad52cf2ab6f422f2c70917bd125a reports/infadv/worldgen/configured_feature/aquamarine_ore_mountain.json
